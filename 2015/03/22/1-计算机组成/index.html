@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="-计算机基础," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="janino@Dev" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/blog_logo.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="计算机概论计算机发展历史计算机科学：简单一句话，即研究计算机与人类社会生活所相关的一门学科，其分支有数据库、数据挖掘、人工智能、机器学习、网络安全、分布式系统、服务系统、图形学、系统、大数据/云计算等… 计算思维：本质就是思考社会自然现象  —&amp;gt; 抽象到  —-&amp;gt; 计算机的过程； 绪论：从1946-2-15第一台计算机ENIAC诞生以来，计算机经过了60多年的发展，一下以硬件和软件两方">
+<meta name="keywords" content="-计算机基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1,计算机组成">
+<meta property="og:url" content="http://devfqh.com/2015/03/22/1-计算机组成/index.html">
+<meta property="og:site_name" content="janino@Dev">
+<meta property="og:description" content="计算机概论计算机发展历史计算机科学：简单一句话，即研究计算机与人类社会生活所相关的一门学科，其分支有数据库、数据挖掘、人工智能、机器学习、网络安全、分布式系统、服务系统、图形学、系统、大数据/云计算等… 计算思维：本质就是思考社会自然现象  —&amp;gt; 抽象到  —-&amp;gt; 计算机的过程； 绪论：从1946-2-15第一台计算机ENIAC诞生以来，计算机经过了60多年的发展，一下以硬件和软件两方">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p1.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p2.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p3.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p4.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p5.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p6.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p7.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p8.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p9.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p10.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p11.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p12.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p13.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p14.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p15.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p16.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p17.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p18.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p19.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p20.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p21.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p22.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p23.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p24.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p25.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p26.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p27.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p28.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p29.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p30.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p31.png">
+<meta property="og:updated_time" content="2017-07-24T09:01:14.402Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1,计算机组成">
+<meta name="twitter:description" content="计算机概论计算机发展历史计算机科学：简单一句话，即研究计算机与人类社会生活所相关的一门学科，其分支有数据库、数据挖掘、人工智能、机器学习、网络安全、分布式系统、服务系统、图形学、系统、大数据/云计算等… 计算思维：本质就是思考社会自然现象  —&amp;gt; 抽象到  —-&amp;gt; 计算机的过程； 绪论：从1946-2-15第一台计算机ENIAC诞生以来，计算机经过了60多年的发展，一下以硬件和软件两方">
+<meta name="twitter:image" content="http://devfqh.com/images/ComputerBase/CBase_p1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6370865374186964000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://devfqh.com/2015/03/22/1-计算机组成/"/>
+
+
+
+
+
+  <title>1,计算机组成 | janino@Dev</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?23d814c46207990b1bb576bcdf937df8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=60261186";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1261104557&web_id=1261104557" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">janino@Dev</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">努力，到无能为力！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://devfqh.com/2015/03/22/1-计算机组成/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="janino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog_logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="janino@Dev">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">1,计算机组成</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-22T15:05:41+08:00">
+                2015-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/03/22/1-计算机组成/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/22/1-计算机组成/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/03/22/1-计算机组成/" class="leancloud_visitors" data-flag-title="1,计算机组成">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="计算机概论"><a href="#计算机概论" class="headerlink" title="计算机概论"></a>计算机概论</h1><h2 id="计算机发展历史"><a href="#计算机发展历史" class="headerlink" title="计算机发展历史"></a>计算机发展历史</h2><p><strong>计算机科学：</strong>简单一句话，即研究计算机与人类社会生活所相关的一门学科，其分支有数据库、数据挖掘、人工智能、机器学习、网络安全、分布式系统、服务系统、图形学、系统、大数据/云计算等…</p>
+<p><strong>计算思维：本质就是思考社会自然现象  —&gt; 抽象到  —-&gt; 计算机的过程；</strong></p>
+<p><strong>绪论：</strong>从1946-2-15第一台计算机ENIAC诞生以来，计算机经过了60多年的发展，一下以硬件和软件两方面介绍计算机发展历史；<br><strong>计算机硬件发展史：</strong><br><strong><em>第一代：</em></strong>1946-1959，电子管（真空管）时代，主要用于商用，限制于专业人士进入机房，大型机构才负担的起；<br><strong><em>第二代：</em></strong>1959-1965，晶体管时代，减小计算机体积、成本，中小型企业也可负担得起<br><strong><em>第三代：</em></strong>1965-1975，中、小规模集成电路，即将部件集成到一块芯片上，从此诞生了程序、软件行业<br><strong><em>第四代：</em></strong>1975-1985，超大规模集成电路时代，出现了微型计算机，电路板，且开始出现计算机网络<br><strong><em>第五代：</em></strong>1985-至今，超级规模集成电路时代，即现代计算机，出现了个人电脑、存储设备、多媒体、虚拟现实等现；</p>
+<p><strong>计算机软件发展史：</strong><br><strong>机器语言阶段（50年代）：</strong>最早期，只能通过0和1，打孔时编程，空白时期，根本没有计算机软件，完全由程序员手工移动数据、排序，没有程序流的概念<br><strong>汇编语言阶段（50年代）：</strong>通过一些符号来代替0和1<br><strong>程序批处理阶段（60年代）：</strong>编译器的出现，开始出现一些高级语言， 控制流的概念产生，出现了数据类型、子程序、函数等概念，使得复杂的程序模块化、相对独立<br><strong>多用户阶段（70年代）：</strong>出现了unix系统，完成多用户，由此出现了c风格的编程语言，延续至今<br><strong>分布式管理阶段（80年代）：</strong>基于unix操作系统，人们开始在此环境上研究分布式操作系统、分布式应用软件<br><strong>软件重用阶段（90年代）：</strong>出现了面向对象技术，并得到广泛应用，大量的软件可视化界面，视窗，操作系统出现，并随着Internet网络技术的成熟，基于Web的分布式应用软件成为主流，并出现了软件工程的概念<br><strong>Web服务阶段（至今）：</strong>Internet的分布式软件，仍然是主流，如j2ee，web service等</p>
+<p><strong>计算机的发展趋势：</strong>云计算、虚拟化：通过虚拟化技术，将一台物理计算机虚拟为多台逻辑计算机。并同时允许多个不同的操作系统，且应用程序之间可在互相独立的空间允许而互不影响，从而显著提高计算机的工作效率。</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p1.png" alt=""><br><img src="http://devfqh.com/images/ComputerBase/CBase_p2.png" alt=""></p>
+<h2 id="冯诺依曼模型："><a href="#冯诺依曼模型：" class="headerlink" title="冯诺依曼模型："></a>冯诺依曼模型：</h2><p><strong>冯诺依曼模型：</strong>约1945年提出计算机设计思想，奠定了现代计算机体系的基础结构，其基本思想：<br>1，运算和存储分离<br>2，通过二进制来表示数据和指令（包含了操作码和地址吗）<br>3，采用存储程序的方式，是冯诺依曼的核心， 在程序执行前，将指令提前在存储器中，运算过程，按地址连续寻访执行<br>4，由五大部件构成：存储器、运算器、控制器、输入设备、输出设备<br><strong><em>存储器：</em></strong>存储数据、及程序执行的指令<br><strong><em>运算器（算术逻辑单元）：</em></strong>负责执行指令，即进行运算（数学、逻辑等）<br><strong><em>控制器（控制单元）：</em></strong>负责解释指令，即对存储器、输入/输出设备、运算器进行管理<br><strong><em>输入设备/输出设备：</em></strong>即接收计算机外部输入数据，并输出运算结果的设备</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p3.png" alt=""></p>
+<p><strong>现代计算机结构：</strong>本质上仍然属于冯诺依曼计算机模型；将运算器和控制器集成到了一块芯片上，且存储信息量的加大，逐步变成了以存储器为中心；</p>
+<p><strong>变成三部分：</strong>CPU、主存储器、输入/输出设备；</p>
+<h2 id="计算机软件系统"><a href="#计算机软件系统" class="headerlink" title="计算机软件系统"></a>计算机软件系统</h2><p><strong>系统软件：</strong>即保证计算机系统高效、正确运行的基础软件，通常作为系统资源系统，例如操作系统、编译器、语言处理程序，各种服务程序；<br><strong>应用软件：</strong>通常是为用户解决某个应用领域中的各类问题而产生的程序，例如聊天qq、购物淘宝、娱乐游戏等；</p>
+<h2 id="计算机系统的组织结构"><a href="#计算机系统的组织结构" class="headerlink" title="计算机系统的组织结构"></a>计算机系统的组织结构</h2><p><strong>硬件和软件的关系：</strong>两者紧密相关，硬件是物质基础，没有硬件，再好的软件也无法运行；而软件是灵魂，没有软件，再好的硬件也只是空壳而已；<br><em>计算机系统的层次划分（无统一方式，仅作参考）：</em></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p4.png" alt=""><br><img src="http://devfqh.com/images/ComputerBase/CBase_p5.png" alt=""></p>
+<h2 id="计算机的特点和性能指标"><a href="#计算机的特点和性能指标" class="headerlink" title="计算机的特点和性能指标"></a>计算机的特点和性能指标</h2><p><strong>性能指标：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1，连续工作</div><div class="line">2，速度快</div><div class="line">3，精度高</div><div class="line">4，强大的存储能力和逻辑判断能力</div><div class="line">5，通用性强，适用于各个领域</div></pre></td></tr></table></figure></p>
+<p><strong>计算机分类：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1，按处理信息量</div><div class="line">2，按计算机字长，如8位、16位、32位、64位机</div><div class="line">3，按应用范围</div><div class="line">4，按计算机规模，如单片机、微型机、小型机、大型机、巨型机、超级巨型机等</div></pre></td></tr></table></figure></p>
+<p><strong>计算机应用：</strong>科学计算、数据处理、现代控制、网络、人工智能</p>
+<h1 id="信息的表示"><a href="#信息的表示" class="headerlink" title="信息的表示"></a>信息的表示</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>计算机信息的表示：</strong><br> 1，数值型0和1<br> 2，编码型，即使用一些符号来表示数据，再将符号转成0和1，常见如ASCII、gbk、utf-8</p>
+<p><strong>数据类型：</strong>常见的五种数据类型：数字、文字、音频、图像、视频；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p6.png" alt=""></p>
+<p><strong>存储单位：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bit（位）：计算机的最小单位，值为0或1，在嵌入式开发中，通常表示开或关；</div><div class="line">byte（字节）：1byte = 8bit</div><div class="line">KB--&gt; MB-&gt; GB -&gt; TB之间的单位则为1024</div></pre></td></tr></table></figure></p>
+<h2 id="数据类型的存储"><a href="#数据类型的存储" class="headerlink" title="数据类型的存储"></a>数据类型的存储</h2><h3 id="存储数值"><a href="#存储数值" class="headerlink" title="存储数值"></a>存储数值</h3><p><strong>说明：</strong>对于数值类型在计算机中的存储，主要有问题有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1，如何处理符号，即正、负数</div><div class="line">2，如何处理小数点</div><div class="line">3，当一个十进制数 -&gt; 二进制时存储到计算机中时，如果不足一个bit，即8位，则在左边补0；</div><div class="line">  例如十进制7变成二进制     --&gt;    111</div><div class="line">  不足一个bit，8位，需在左边补0  --&gt;  00000111</div></pre></td></tr></table></figure></p>
+<p><strong>（整数）数值型在计算机中的表示：</strong>通常有原码、反码、补码三种形式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">原码：使用数值的最高位来代表符号位，0代表正数；1代表负数；</div><div class="line">反码：正数的反码与原码相同；负数的反码等于除了最高位符号外，其它位取反；</div><div class="line">补码：正数的补码与原码相同；负数的补码等于其反码+1；</div></pre></td></tr></table></figure></p>
+<p><strong>示例：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1100110011 原</div><div class="line">1011001100 反，除最高位符号位外，其它按位取反</div><div class="line">1011001101 补，反码+1</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p7.png" alt=""></p>
+<p><strong>浮点数在计算机中的存储处理（即实数，带小数点的）：</strong>整数和小数部分是分开存储的，且小数点事隐藏的，通常小数部分分成三部分，符号、指数、尾数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">符号位：即表示正负数，0为正，1为负</div><div class="line">指数：以2为底，小数点需要移动的位数</div><div class="line">尾数： 小数点右边的二进制数</div></pre></td></tr></table></figure></p>
+<p><strong>IEEE标准：</strong>定于了几种存储浮点数的标准，以下为单精度32位，和双精度64位的存储</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p8.png" alt=""></p>
+<p><strong>例如：</strong>12.5在计算机中的存储（我也搞不懂，随便看下得了）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1. 将整数部分12转为二进制1100，0.5转为二进制.1，并连起来，从第一位开始取24位，后面补0</div><div class="line">      1100.10000000000000000000</div><div class="line"></div><div class="line">2. 把小数点移到第一个1的后面，需要左移3位, 加上偏移量127，127+3=130，二进制是10000010，这是阶码。    </div><div class="line"></div><div class="line">3. -12.5是负数，所以符号位是1。把符号位，阶码和尾数连起来。注意，尾数的第一位总是1，所以规定不存这一位的1，只取后23位：</div><div class="line">      1 10000010 10010000000000000000000</div><div class="line">   把这32位按8位一节整理一下，得：</div><div class="line">      11000001 01001000 00000000 00000000</div><div class="line">   就是十六进制的 C1480000.</div></pre></td></tr></table></figure></p>
+<h3 id="存储文本"><a href="#存储文本" class="headerlink" title="存储文本"></a>存储文本</h3><p><strong>简介：</strong>通常采用编码的方式， 例如ASCII、unicode存储各种文字，再将其转换成对应的二进制即可；</p>
+<h3 id="存储音频"><a href="#存储音频" class="headerlink" title="存储音频"></a>存储音频</h3><p><strong>简介：</strong>由于音频和数字文本等信息不同，其是随着时间而变化的实体，计算机内部存储的方式是存储一个音频信号的密度，例如一段时间（一秒钟、一小时）来自麦克风的信号；</p>
+<p><strong>音频编码：</strong>主流格式为mp3，采用每秒40000个样本，以及每样本16位来存储,在计算机内存中存储音频，需要连续的数量的内存单元，即结合音频编码去完成；（编码通常有操作系统或软件实现）</p>
+<h3 id="存储图像"><a href="#存储图像" class="headerlink" title="存储图像"></a>存储图像</h3><p><strong>光栅图（即位图）：</strong>有真彩色和索引色两种，真彩色可支持超过1600万中颜色组合；而索引色仅支持少量颜色；记录色彩深度，通常是R、G、 B三原色，用0 - 255的数字来表示，24位来存储一个像素颜色值；<br>例如一部500W像素相机拍摄一张3 * 5英寸的照片，分别用以下两种方式存储所需要的位数<br><img src="http://devfqh.com/images/ComputerBase/CBase_p9.png" alt=""></p>
+<p><strong>JPEG：</strong>通常使用真彩色，但会通过压缩来减少存储空间</p>
+<p><strong>GIF：</strong>通常使用索引色；</p>
+<p><strong>矢量图：</strong>光栅图的缺点，文件尺寸大且重新调整大小，会失真；而矢量图并不存储每个像素的位模式，而是存储几何图形的特征，例如点、线、面，矩形、圆形等，其只能通过软件生成，特点是自由、无限制重新组合，并分辨率无关，放大后图像不会失真；</p>
+<h3 id="存储视频"><a href="#存储视频" class="headerlink" title="存储视频"></a>存储视频</h3><p><strong>简介：</strong>通过帧的方式来存储，并存储图像； 即视频是随着时间播放不同图像的提现；主要存储两种信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1，帧,即每一帧该播放对应的图像地址信息</div><div class="line">2，图像</div></pre></td></tr></table></figure></p>
+<h2 id="进制的换算"><a href="#进制的换算" class="headerlink" title="进制的换算"></a>进制的换算</h2><h3 id="进制说明"><a href="#进制说明" class="headerlink" title="进制说明"></a>进制说明</h3><p><strong>二进制（逢二进一）：</strong>即改数字往前移动一位，进一，当前变成0;<br>    1001 +1<br>    1010<br><strong>八进制（逢八进一）：</strong><br>    237 + 1 = 238，逢八进一，因此8变成0，进一后为240；<br>    240<br><strong>十进制（逢十进一）：</strong><br>    239+ 1 =240<br>    240<br><strong>十六进制（逢十六进一）：</strong>10到15，以字母ABCDEF代替<br>    12478ABCDE + 1 = 123478ABCDF,<br>    逢十六进一，F为16，进一结果为123478ABCE0<br><strong>转换说明：</strong>先转成十进制，再转成其它进制，由此可完成任意进制的转换</p>
+<h3 id="其它进制转十进制"><a href="#其它进制转十进制" class="headerlink" title="其它进制转十进制"></a>其它进制转十进制</h3><p><strong> 二进制转十进制： </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1，将二进制数从右往左数，例如11010，从右往左数则为01011，</div><div class="line">2， 用该数 * 2的n次方（n为位置），然后把他们全部加起来即可；</div><div class="line">3，最终结果 = 0 * 2º  1 * 2¹   +  0 * 2²   + 1 * 2³  + 1 * 24 = 26;    （0可忽略，因为没意义）</div><div class="line">    0 第0位</div><div class="line">    1 第1位</div><div class="line">    0 第2位</div><div class="line">    1 第3位</div><div class="line">    1 第4位</div></pre></td></tr></table></figure></p>
+<p><strong>八进制转十进制：</strong>同上，只是将2的n次方，换成了8的n次方，例如八进制1234转十进制；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1，从后往前数，变成4321</div><div class="line">2，用该数 * 8的第n次方（n为位置），然后把他们全部加起来即可；   </div><div class="line">3，最终结果 = 4 * 8º + 3 * 8¹  + 2 * 8² + 1 * 8³  = 2257；</div><div class="line">    4 第0位</div><div class="line">    3 第1位</div><div class="line">    2 第2位</div><div class="line">    1 第3位</div></pre></td></tr></table></figure></p>
+<p><strong> 十六进制转十进制： </strong>同上，只是换成了16的n次方，再相加，例如十六进制A5B6转成十进制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1，从后往前数为6B5A</div><div class="line">2，该数 * 16的第n次方，然后把他们全部加起来即可；   </div><div class="line">3，最终结果 = 6 * 16º + 11 * 16¹   + 5 * 16² + 10 * 16³ = 42422</div><div class="line">    6 第0位</div><div class="line">    B 第1位</div><div class="line">    5 第2位</div><div class="line">    A 第3位</div></pre></td></tr></table></figure></p>
+<h3 id="十进制转其它进制"><a href="#十进制转其它进制" class="headerlink" title="十进制转其它进制"></a>十进制转其它进制</h3><p><strong>十进制转二进制：</strong>用十进制数不断  / 2，每次取余，最后从下往上排列即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">123 / 2=61 余1</div><div class="line"> 61/2=30 余1</div><div class="line"> 30/2=15 余0 </div><div class="line"> 15/2=7  余1</div><div class="line">  7/2=3  余1</div><div class="line">  3/2=1  余1</div><div class="line">   1</div></pre></td></tr></table></figure></p>
+<p>余数从下往上排列就是111011，注意需要加上最后一步3 / 2 = 1中的1放到最前面得到1111011</p>
+<p><strong>十进制转八进制：</strong>同上，用十进制不断 / 8， 取余，从下往上排列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">123 / 8 = 15;      余 3</div><div class="line">15 / 8 = 1;        余7</div></pre></td></tr></table></figure></p>
+<p>最后把15 / 8 = 1; 中的1算上  ，从下往上排列就是173</p>
+<p><strong>十进制转十六进制：</strong>同上，用十进制数不断 / 16  取余<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">12345  / 16 = 771  余9</div><div class="line">  771 / 16 = 48    余3</div><div class="line">  48 / 16 = 3      余0</div></pre></td></tr></table></figure></p>
+<p>把最后48 / 16 = 3中的3算上，加到最前面，则从下往上排列为3039</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><strong>转换规则：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1，其它进制转十进制：从右往左数的每个数乘以2/8/16的n次方，并相加即可；</div><div class="line">2，十进制转其它进制：将十进制数不断除以2/8/16，并得到余数，然后将余数从下往上记即可，且需加上最后的商；</div></pre></td></tr></table></figure></p>
+<p><strong>小数点的处理（了解即可）：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1，其它进制小数转十进制：同样处理，小数点部分指数为负数，1101.01 = 1*20 + 0*21+1*22 + 1*23 + 0*2-1 + 1*2-2 = 1 + 0 + 4 + 8 + 0 + 0.25 = 13.25</div><div class="line">2，十进制小数转其它进制：整数和小数分别转换.</div></pre></td></tr></table></figure></p>
+<h4 id="整数除以2-商继续除以2-8-16-得到0为止-将余数逆序排列"><a href="#整数除以2-商继续除以2-8-16-得到0为止-将余数逆序排列" class="headerlink" title="整数除以2,商继续除以2/8/16,得到0为止,将余数逆序排列."></a>整数除以2,商继续除以2/8/16,得到0为止,将余数逆序排列.</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">22 / 2 11 余0</div><div class="line">11/2 5 余 1</div><div class="line">5 /2 2 余 1</div><div class="line">2 /2 1 余 0</div><div class="line">1 /2 0 余 1</div><div class="line">所以22的二进制是10110</div></pre></td></tr></table></figure>
+<h4 id="小数乘以2-取整-小数部分继续乘以2-取整-得到小数部分0为止-将整数顺序排列"><a href="#小数乘以2-取整-小数部分继续乘以2-取整-得到小数部分0为止-将整数顺序排列" class="headerlink" title="小数乘以2,取整,小数部分继续乘以2,取整,得到小数部分0为止,将整数顺序排列."></a>小数乘以2,取整,小数部分继续乘以2,取整,得到小数部分0为止,将整数顺序排列.</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">0.8125 取出整数部分 --&gt; 0.</div><div class="line">0.8125 x 2=1.625，取整 --&gt; 1,小数部分是0.625</div><div class="line">0.625 x 2 = 1.25， 取整   --&gt; 1,小数部分是0.25</div><div class="line">0.25 x 2=0.5，取整   --&gt;  0,小数部分是0.5</div><div class="line">0.5 x 2=1.0，取整 ---&gt; 1,小数部分是0,结束</div><div class="line">所以0.8125的二进制是0.1101</div></pre></td></tr></table></figure>
+<h1 id="运算方法"><a href="#运算方法" class="headerlink" title="运算方法"></a>运算方法</h1><h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><p><strong>说明：</strong>在计算机中，通常0代表false，1代表true;</p>
+<p><strong>逻辑运算符主要有：</strong>&amp;（位与）、|（位或）、~（非）、^（异或）</p>
+<p><strong>&amp; ：</strong>位与（AND），两个都是1，返回1，其它返回0；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p10.png" alt=""></p>
+<p><strong>|：</strong>位或（OR），有一个为1则返回1，2个都为0返回0<br><img src="http://devfqh.com/images/ComputerBase/CBase_p11.png" alt=""></p>
+<p><strong>~：</strong>取反，0变成1,1变成0；单目运算符<br><img src="http://devfqh.com/images/ComputerBase/CBase_p12.png" alt=""></p>
+<p><strong>^：</strong>异或，只有一个为1则为1，其它条件为0；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p13.png" alt=""></p>
+<h2 id="位移运算"><a href="#位移运算" class="headerlink" title="位移运算"></a>位移运算</h2><p><strong>位移运算：</strong>将数值的二进制形式，左移或右移n位. 不足补0.<br>    &lt;&lt;：左移变大       高位舍弃，低位补0;</p>
+<pre><code>&gt;&gt;：右移变小       低位舍弃，高位补0；
+</code></pre><p><img src="http://devfqh.com/images/ComputerBase/CBase_p14.png" alt=""></p>
+<p><strong>快捷算法：</strong><br>         3  &lt;&lt;  2  =   3 * 2②<br>         6  &gt;&gt;  2  =   6 / 2②<br><img src="http://devfqh.com/images/ComputerBase/CBase_p15.png" alt=""></p>
+<h2 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h2><p><strong>简介：</strong>底层运算较为复杂，对于应用层人员，无需深入了解，通常是通过二进制来完成运算，可通过原码、反码、补码进行+、-、*、/四则运算；</p>
+<h1 id="存储器系统"><a href="#存储器系统" class="headerlink" title="存储器系统"></a>存储器系统</h1><p><strong>简介：</strong>主要功能是存储程序和数据，是冯诺依曼计算机的五大部件之一，其主要分类如下；</p>
+<p><strong>按与CPU的连接功能分类:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1，主存储器：CPU能够直接访问的存储器，用于存放当前运行的程序和数据，由于其设在主机内部，又称为主存或内存；</div><div class="line">2，辅助存储器（外部）：解决主存空间不足的问题，存放不参与运行的程序和数据，CPU不能直接访问，例如硬盘</div><div class="line">3，高速缓存存储器：介于主存和CPU之间，主要用于存放CPU即将要运行或刚刚使用过的程序和数据</div></pre></td></tr></table></figure></p>
+<p><strong>按存取方式分类:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1，随机存储器（RAM）：可按地址随机的读取或写入，在断电后可能会数据丢失，例如常见的硬盘、u盘</div><div class="line">2，只读存储器（ROM）：只读存储器，可编程式，由制造商写入，优点是数据不会丢失；</div><div class="line">3，顺序存储器（SAM）：存储信息的排列、寻找、读写操作是按顺序进行的</div><div class="line">4，直接存储器（DAM）：介于RAM和SAM之间的存储器</div></pre></td></tr></table></figure></p>
+<p><strong>按存储介质分类:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1，磁芯存储器：早期，利用两种不同的磁芯状态来存放二进制代码0和1</div><div class="line">2，半导体存储器（常用于主存）：采用半导体，分为双极性和MOS型</div><div class="line">3，磁表面存储器：利用涂在表面上的一层磁性材料存放二进制代码，例如磁盘、磁带等</div><div class="line">4，光存储器：利用光学原理支撑的存储器，通过能量高度集中的激光束照在基体表面引起物理/化学的变化，记忆二进制信息</div></pre></td></tr></table></figure></p>
+<p><strong>主存储器的组成：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">存储阵列：核心，用于存储二进制信息的主体，有大量的存储单元组成，又称存储体</div><div class="line">地址寄存器：存放所要访问的存储单元的地址，</div><div class="line">地址总线：要访问一个存储单元，必须通过地址总线将其地址放到寄存器中</div><div class="line">数据寄存器：获取该存储单元的数据</div><div class="line">数据总线：通过数据总线输出给目标设备</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p16.png" alt=""></p>
+<p><strong>存储器的性能指标：</strong>容量、速度、价格、数据传输率</p>
+<p><strong>存储器的层次结构：</strong>由下往上，越顶层速度越快、价格越昂贵；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p17.png" alt=""></p>
+<h1 id="CPU与控制系统"><a href="#CPU与控制系统" class="headerlink" title="CPU与控制系统"></a>CPU与控制系统</h1><h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><p><strong>cpu：</strong>现代计算机中，将控制器、运算器、寄存器集成到了一块芯片上，通常称为CPU；</p>
+<p><strong>1. 算术逻辑单元（运算单元ALU）：</strong>主要对数据进行逻辑、移位、算术运算<br><strong>2. 寄存器（快速存储单元）：</strong>用于存放临时数据的高速独立存储单元，主要作用有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">2.1 数据寄存器：较为少用，通常使用硬盘来存储数据</div><div class="line">2.2 指令寄存器：cpu需要从内存中取出指令，并存储到寄存器中，解释并执行；</div><div class="line">2.3 程序计数器：保存当前正在执行的指令，并存储下一条指令的内存地址；，</div><div class="line">2.4 地址寄存器、数据缓冲寄存器等</div></pre></td></tr></table></figure></p>
+<p><strong>3. 控制单元：</strong>复制从存储器中取出指令、并执行程序，控制各个子系统之间的协调工作；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">3.1，控制指令的正确执行</div><div class="line">3.2，控制程序和数据的输入、输出结构</div><div class="line">3.3，异常情况和特殊请求的处理</div></pre></td></tr></table></figure></p>
+<p><strong>指令执行的基本步骤：</strong>根据存放在存储器中的程序，取出指令，并执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 取指令：即cpu的控制单元将下一条要执行的指令从内存中，复制到寄存器中。 其指令地址将会被存储到程序计数器中，+1代表指向下一条指令的地址</div><div class="line">2. 分析指令（译码）：当取出指令存放到寄存器中，需要由控制单元将指令译码成系统可指向的二进制代码</div><div class="line">3. 执行指令译码完成后，控制单元会通知系统，从内存中加载数据或计算，最终将结果保存在输出寄存器中；</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p18.png" alt=""></p>
+<p><strong>控制方式：</strong>计算机执行指令的过程，需要在时间上对各个微操作进行控制，主要方式有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1，同步控制方式：即一条指令完成后，才能转向并继续后续的指令操作</div><div class="line">2，异步控制方式：需要硬件设备的支持，较为繁琐复杂</div><div class="line">3，联合控制方式：同步和异步相结合的控制方式</div></pre></td></tr></table></figure></p>
+<p><strong>并行处理：</strong>即采用多个控制单元、多个算术逻辑单元、多个内存单元的计算机，同时处理多项任务，提高效率；<br><strong>SISD：</strong>单指令流、单数据流表示计算机只有一个控制单元、一个算术逻辑单元、一个内存单元<br><strong>SIMD：</strong>单指令流、多数据流，表示计算机只有一个控制单元、多个算术逻辑单元、一个内存单元<br><strong>MISD：</strong>多指令流、多数据流，</p>
+<h1 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h1><h2 id="机器指令"><a href="#机器指令" class="headerlink" title="机器指令"></a>机器指令</h2><p><strong>机器指令：</strong>在计算机中，指令是计算机硬件唯一能够直接理解并执行的命令，故又称机器指令，通过机器语言编写，由于机器语言是计算机唯一能够直接理解并执行的语言，因此其它语言的程序必须经过翻译成机器语言，才能运行；</p>
+<p><strong>机器指令格式：</strong>以二进制代码表示， 分为操作码和地址码；<br>    <strong>操作码：</strong>存储指令应执行的操作<br>    <strong>地址码：</strong>可存储指令所涉及的操作数据的存放地址</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p19.png" alt=""></p>
+<p><strong>寻址方式：</strong>根据存储程序的概念，计算机在运行之前必须把程序和数据存入主存中，为保证程序能够连续运行，在运行过程中，需不断的从主存中读取指令，那么就需要通过寻址来找到指令的地址并运行；</p>
+<p><strong>指令的寻址方式：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1，顺序方式：采用PC增量的方式形成下一条指令的地址，因为程序中的指令是顺序存放的，按一定的增量即可形成下一条指令地址</div><div class="line">2，跳跃方式：当程序发生转移时，根据指令的转移目的地址修改PC内容</div></pre></td></tr></table></figure></p>
+<p><strong>操作数的寻址方式：</strong>由于操作数的存放不如指令的存放有规律，其可能存储在主存或寄存器中，而且有时存储是原始数据、有时是运算结构，较为复杂；</p>
+<p><strong>1，立即寻址：</strong>按指令的地址码部分给出的部分，是操作数本身，而不是操作数的地址</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p20.png" alt="">             </p>
+<p><strong>2，直接寻址：</strong>根据指令的地址码给出不愤怒，找到其操作数的地址，在根据地址找到操作数本身</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p21.png" alt="">         </p>
+<p><strong>3，间接寻址：</strong>分为一级间址和多级间址，一级是指指令的形式地址A给出的是存储单元的地址，此时存储单元中的内容就是操作数的有效地址；多级是指指令的地址码部分给出的是操作数的地址</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p22.png" alt=""></p>
+<p><strong>4，寄存器直接寻址：</strong> 指令地址给出的是某个寄存器的编号或地址，改寄存器的内容即为指令所需的操作数据</p>
+<p><strong>其它寻址方式：</strong>寄存器间接寻址、变址寻址、相对寻址、基址寻址、基址+变址寻址、页面寻址、扩展寻址</p>
+<p><strong>堆栈寻址：</strong>由堆栈支持的寻址方式，按先进后出或者后进先出的方式进行存取，在堆栈结构中，第一个存入的单元称为栈底，最后一个存入的单元称为栈顶；通常栈底是不变的，而栈顶是随着数据单元的进栈出栈而浮动变化的；计算机的堆栈分为两种；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1，寄存器堆栈：速度快，但是容量小，不易扩展</div><div class="line">2，存储器堆栈：普遍采用，速度略慢，但是容量大</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p23.png" alt="">   </p>
+<p><strong>指令的类型：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">1，数据传送指令：计算机中最基本、最常用的指令，实现一个部件与一个部件之间的数据传送，例如寄存器与存储单元、存储单元与CPU、存储单元与IO设备</div><div class="line"></div><div class="line">2，算术逻辑运算指令：即完成各类数据信息的处理，运算，如四则运算、逻辑运算</div><div class="line"></div><div class="line">3，移位指令：完成位运算、如左移、右移等</div><div class="line"></div><div class="line">4，堆栈操作指令：特殊的数据传送指令，分为进栈和出栈，进栈则将将数据送入栈顶，出栈指令是将栈顶数据送到指令制定的目的地址中</div><div class="line"></div><div class="line">5，字符串处理指令：处理字符串，如查找、抽取、替换、比较、匹配等</div><div class="line"></div><div class="line">6，程序控制指令：转移指令、循环指令、返回指令、子程序调用等</div><div class="line"></div><div class="line">7，I/O指令：主要用于主机和外部设备之间的数据输入输出，接收外部设备数据，并返回结果给外部设备</div><div class="line"></div><div class="line">8，其它指令：如控制指令、关机、停机、重启等...</div></pre></td></tr></table></figure></p>
+<p><strong>复杂指令系统计算机（CISC）：</strong>早期使用，指令复杂庞大，格式多，寻址方式多，时间和频率相差大；</p>
+<p><strong>精简指令系统计算机（RISC）：</strong>相比CISC更加简单化</p>
+<h1 id="总线技术"><a href="#总线技术" class="headerlink" title="总线技术"></a>总线技术</h1><h2 id="总线概述"><a href="#总线概述" class="headerlink" title="总线概述"></a>总线概述</h2><p>计算机系统大多采用模块结构，一个模块就是一块功能插件、部件，例如CPU模块、存储器模块、各种I/O接口等；各模块之间传送信息的公共通道称为总线；</p>
+<p>总线就是一个共享的传输媒介，当多个设备连接到总线上时，任何一个设备都可通过总线传输、接收数据；为避免总线上的信息不冲突，同时只允许一个设备向总线发送信号，以保证总线上信息每时每刻都是唯一的</p>
+<p>通常一条总线由多条通信线路组成，每条通信线路能够传输一位二进制的1或0的信号；</p>
+<p><strong>主要的总线：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cpu总线：一级数据线，用于连接cpu内部各寄存器和算术逻辑部件的总线。</div><div class="line">部件内总线：在计算机中，通常按功能模块制作插件，每个插件上也有总线结构来连接有关芯片</div><div class="line">系统总线：连接系统内各大部件，如cpu、存储器、i/o设备的总线，是连接整个计算机的基础，其包括了地址线、控制线、数据线、状态信号线等</div><div class="line">外总线：计算机系统与计算机系统之间通信的总线；</div></pre></td></tr></table></figure></p>
+<p><strong>总线的组成：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1，数据总线：为系统部件之间提供传输数据的通道，每根线上每次传送1bit的数据，双向传输</div><div class="line">2，地址总线：传输地址信号，传输内存、数据地址、I/O端口的寻址，单向传输</div><div class="line">3，控制总线：负责在中央处理器和内存之间传输控制信号（数据、程序指令），以控制系统完成规定的操作</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p24.png" alt=""> </p>
+<p><strong>按总线信息传送方向区分，可分为单向总线和双向总线两种：</strong><br><strong>单向总线：</strong>cpu通过单总线访问主存储器，cpu与各I/O设备之间，I/O设备与主存储器之前，都可以通过这组单总线交换信息，其缺点在于同一时刻只能在一对设备之间或部件之间传送数据，因此系统速度受到限制，且CPU与主存储器之间的信息非常频繁，因此在CPU与主存之间增加了一组存储器总线，CPU访问通过存储器总线实现，由此发展成了面向主存的双总线结构；<br><strong>双向总线：</strong>由于CPU与主存储器的信息传输非常频繁，因此加了一组存储总线之后，    即可直接访问存储器，提高了系统效率；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p25.png" alt=""><br><img src="http://devfqh.com/images/ComputerBase/CBase_p26.png" alt=""> </p>
+<h1 id="I-O系统"><a href="#I-O系统" class="headerlink" title="I/O系统"></a>I/O系统</h1><p><strong>简介：</strong>I/O设备是实现计算机系统与外界之间交互的装置；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">输入设备：计算机接收外界数据，例如键盘、鼠标、扫描仪、磁盘、摄像机等</div><div class="line">输出设备：将计算机处理结果，转换成可识别的信息形式，例如打印机、显示器、音响等</div></pre></td></tr></table></figure></p>
+<p><strong>I/O系统概述：</strong>解决计算机主机与外部设备之间的数据交换格式问题；</p>
+<p><strong>I/O系统的组成：</strong>通常分为四部分，扩展总线、I/O设备、I/O接口、相关控制软件。典型结构图如下<br><img src="http://devfqh.com/images/ComputerBase/CBase_p27.png" alt=""> </p>
+<p>虽然系统总线作为公共信息桐庐，但IO设备不能直接连接到系统总线上，需通过扩展总线以及I/O接口来实现I/O设备与主机之间的连接；</p>
+<p><strong>主机与外部设备的连接方式：</strong><br><strong> 1，总线型连接方式：</strong>CPU通过系统总线与主存、IO接口进行相连，通过IO接口控制器对外部设备进行控制，较为常用；<br><strong> 2，通道控制连接方式：</strong>主要用于大型机，连接数较多的场合；通过一个通道控制器来完成IO总线和系统总线之间的连接<br><strong>通道控制器：</strong>专门负责IO操作的控制器，在此种模式下，CPU不再负责具体的IO控制，转交给通道控制器，实现了处理器和通道控制器和外部设备的并行工作；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p28.png" alt="">               </p>
+<p><strong>3，I/O处理控制连接方式：</strong>可适用于巨型机，也可适用于微型机</p>
+<p><strong>I/O接口：</strong>指主机和外部设备之间的连接接口，如USB、hdmi等都是，主要功能有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1，数据传送、缓冲、隔离、锁存</div><div class="line">2，数据格式转换</div><div class="line">3，主机和外设的通信联络控制，例如传输命令、执行指令、中断控制等</div><div class="line">4，寻址：在一个计算机系统中，通常会连接多个外设，因此需要对众多的外部设备分配地址，完成映射</div></pre></td></tr></table></figure></p>
+<p><strong>输入/输出操作：</strong>计算机通过指令将数据从I/O设备输出到cpu和内存，IO操作运行速度要比cpu慢的多，因此cpu需要与输入/输出设备同步，通常有三种同步方式</p>
+<p><strong>1，程序控制输入/输出：</strong>最简单的方式，CPU遇到一条I/O指令时，就停止工作，去检查输入/输出设备的状态，如果设备以及做好传输准备，则开始传送数据到cpu，缺点是每次都需浪费时间去检测设备状态<br><img src="http://devfqh.com/images/ComputerBase/CBase_p29.png" alt="">                          </p>
+<p><strong>2，中断控制输入/输出：</strong>首先cpu告知IO设备即将开始传输，但是cpu并不需要不断检测IO设备的状态，当IO设备准备好时，他通知中断CPU，在此过程中CPU还可处理其它的工作，不至于浪费操作；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p30.png" alt=""> </p>
+<p><strong>3，直接存储存储：</strong>适用于在高速IO设备间传输大量数据库，例如磁盘、内存，而不需要通知cpu的数据传输<br><img src="http://devfqh.com/images/ComputerBase/CBase_p31.png" alt="">              、</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://avatars3.githubusercontent.com/u/13724193?v=4&u=badffa5b147f5babec97aa66ae75e1e3e1d50592&s=400" alt="janino WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://avatars3.githubusercontent.com/u/13724193?v=4&u=badffa5b147f5babec97aa66ae75e1e3e1d50592&s=400" alt="janino Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机基础/" rel="tag"># -计算机基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/13/2-操作系统原理/" rel="prev" title="2,操作系统原理">
+                2,操作系统原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/03/22/1-计算机组成/"
+           data-title="1,计算机组成" data-url="http://devfqh.com/2015/03/22/1-计算机组成/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/blog_logo.png"
+               alt="janino" />
+          <p class="site-author-name" itemprop="name">janino</p>
+           
+              <p class="site-description motion-element" itemprop="description">努力，到无能为力！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/janino-fqh/" target="_blank" title="博客园">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  博客园
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/janino" target="_blank" title="github地址">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github地址
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/janino-fqh/" title="博客园" target="_blank">博客园</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/janino" title="github地址" target="_blank">github地址</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机概论"><span class="nav-number">1.</span> <span class="nav-text">计算机概论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机发展历史"><span class="nav-number">1.1.</span> <span class="nav-text">计算机发展历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冯诺依曼模型："><span class="nav-number">1.2.</span> <span class="nav-text">冯诺依曼模型：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机软件系统"><span class="nav-number">1.3.</span> <span class="nav-text">计算机软件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机系统的组织结构"><span class="nav-number">1.4.</span> <span class="nav-text">计算机系统的组织结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机的特点和性能指标"><span class="nav-number">1.5.</span> <span class="nav-text">计算机的特点和性能指标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信息的表示"><span class="nav-number">2.</span> <span class="nav-text">信息的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型的存储"><span class="nav-number">2.2.</span> <span class="nav-text">数据类型的存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储数值"><span class="nav-number">2.2.1.</span> <span class="nav-text">存储数值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储文本"><span class="nav-number">2.2.2.</span> <span class="nav-text">存储文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储音频"><span class="nav-number">2.2.3.</span> <span class="nav-text">存储音频</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储图像"><span class="nav-number">2.2.4.</span> <span class="nav-text">存储图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储视频"><span class="nav-number">2.2.5.</span> <span class="nav-text">存储视频</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进制的换算"><span class="nav-number">2.3.</span> <span class="nav-text">进制的换算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进制说明"><span class="nav-number">2.3.1.</span> <span class="nav-text">进制说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它进制转十进制"><span class="nav-number">2.3.2.</span> <span class="nav-text">其它进制转十进制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十进制转其它进制"><span class="nav-number">2.3.3.</span> <span class="nav-text">十进制转其它进制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">2.3.4.</span> <span class="nav-text">小结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整数除以2-商继续除以2-8-16-得到0为止-将余数逆序排列"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">整数除以2,商继续除以2/8/16,得到0为止,将余数逆序排列.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小数乘以2-取整-小数部分继续乘以2-取整-得到小数部分0为止-将整数顺序排列"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">小数乘以2,取整,小数部分继续乘以2,取整,得到小数部分0为止,将整数顺序排列.</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运算方法"><span class="nav-number">3.</span> <span class="nav-text">运算方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算"><span class="nav-number">3.1.</span> <span class="nav-text">逻辑运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位移运算"><span class="nav-number">3.2.</span> <span class="nav-text">位移运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算术运算"><span class="nav-number">3.3.</span> <span class="nav-text">算术运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#存储器系统"><span class="nav-number">4.</span> <span class="nav-text">存储器系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU与控制系统"><span class="nav-number">5.</span> <span class="nav-text">CPU与控制系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU"><span class="nav-number">5.1.</span> <span class="nav-text">CPU</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指令系统"><span class="nav-number">6.</span> <span class="nav-text">指令系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器指令"><span class="nav-number">6.1.</span> <span class="nav-text">机器指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总线技术"><span class="nav-number">7.</span> <span class="nav-text">总线技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总线概述"><span class="nav-number">7.1.</span> <span class="nav-text">总线概述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-O系统"><span class="nav-number">8.</span> <span class="nav-text">I/O系统</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">janino</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"penglei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ErKf3oTlvgx8tsfSYNbUTu2I-gzGzoHsz", "MPPjt8qkE6WgiqYi4QWyy0OE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

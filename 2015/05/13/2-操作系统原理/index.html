@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="-计算机基础," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="janino@Dev" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/blog_logo.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="操作系统概述概述操作系统：简称OS，管理计算机硬件和软件资源的计算机程序，是最基本的系统软件，任何其它软件都必须在操作系统的支持下运行；通常认为操作系是管理系统资源、控制程序执行、改善人机界面、提供各种服务、合理组织计算机工作流程，并为用户提供良好运行环境的系统软件；     计算机系统的层次结构：由下图可看出，操作系统是计算机最基本的系统软件，位与硬件之上层        硬件层：即提供了最基本">
+<meta name="keywords" content="-计算机基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2,操作系统原理">
+<meta property="og:url" content="http://devfqh.com/2015/05/13/2-操作系统原理/index.html">
+<meta property="og:site_name" content="janino@Dev">
+<meta property="og:description" content="操作系统概述概述操作系统：简称OS，管理计算机硬件和软件资源的计算机程序，是最基本的系统软件，任何其它软件都必须在操作系统的支持下运行；通常认为操作系是管理系统资源、控制程序执行、改善人机界面、提供各种服务、合理组织计算机工作流程，并为用户提供良好运行环境的系统软件；     计算机系统的层次结构：由下图可看出，操作系统是计算机最基本的系统软件，位与硬件之上层        硬件层：即提供了最基本">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p32.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p33.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p35.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p34.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p36.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p37.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p38.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p39.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p40.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p41.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p42.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p43.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p44.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p45.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p46.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p47.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p48.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p49.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p50.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p51.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p52.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p53.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p54.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p55.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p56.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p57.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p58.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p59.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p60.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p61.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p62.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p63.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p64.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p65.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p66.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p67.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p68.png">
+<meta property="og:updated_time" content="2017-07-25T15:56:11.918Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2,操作系统原理">
+<meta name="twitter:description" content="操作系统概述概述操作系统：简称OS，管理计算机硬件和软件资源的计算机程序，是最基本的系统软件，任何其它软件都必须在操作系统的支持下运行；通常认为操作系是管理系统资源、控制程序执行、改善人机界面、提供各种服务、合理组织计算机工作流程，并为用户提供良好运行环境的系统软件；     计算机系统的层次结构：由下图可看出，操作系统是计算机最基本的系统软件，位与硬件之上层        硬件层：即提供了最基本">
+<meta name="twitter:image" content="http://devfqh.com/images/ComputerBase/CBase_p32.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6370865374186964000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://devfqh.com/2015/05/13/2-操作系统原理/"/>
+
+
+
+
+
+  <title>2,操作系统原理 | janino@Dev</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?23d814c46207990b1bb576bcdf937df8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=60261186";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1261104557&web_id=1261104557" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">janino@Dev</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">努力，到无能为力！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://devfqh.com/2015/05/13/2-操作系统原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="janino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog_logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="janino@Dev">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2,操作系统原理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-13T15:10:52+08:00">
+                2015-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/05/13/2-操作系统原理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/13/2-操作系统原理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/05/13/2-操作系统原理/" class="leancloud_visitors" data-flag-title="2,操作系统原理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><strong>操作系统：</strong>简称OS，管理计算机硬件和软件资源的计算机程序，是最基本的系统软件，任何其它软件都必须在操作系统的支持下运行；<br>通常认为操作系是管理系统资源、控制程序执行、改善人机界面、提供各种服务、合理组织计算机工作流程，并为用户提供良好运行环境的系统软件；    </p>
+<p><strong>计算机系统的层次结构：</strong>由下图可看出，操作系统是计算机最基本的系统软件，位与硬件之上层</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p32.png" alt="">      </p>
+<p><strong>硬件层：</strong>即提供了最基本的硬件，如处理器、寄存器、存储器、及各种I/O设备<br><strong>操作系统层：</strong>最靠近硬件的软件，是最底层、最基本的系统软件，也是上层其它软件运行的基础<br><strong>系统程序层：</strong>直接建立在操作系统上，可使用操作系统提供的扩展指令集，用户接口等完成一些系统功能的调用<br><strong>应用层：</strong>针对用户解决不同的问题的应用</p>
+<p><strong>操作系统的主要特性：</strong><br><strong>1，并发性：</strong>多任务系统，应调度CPU，使其应具有同时处理和调度多个程序的能力，合理利用系统资源<br><strong>2，共享性：</strong>指操作系统中的资源，应该可被多个并发执行的进程共同使用，需注意同时访问和互斥访问<br><strong>3，异步性：</strong>即随机性，在多个进程并发执行下，由于资源有限，多数情况下，进程的执行不是一次到底，而是可能会被暂停，例如一个进程在CPU上运行一段时间后，可能会被暂停，CPU转让给另外一个进程执行； 这些执行的时间、速度都是不可预知的，因此说进程时异步执行的；但异步性给系统带来了潜在的危险，有可能导致进程产生于时间有关的错误，但只要运行环境相同，操作系统必须保证多次运行进程都能获得完全相同的结果；<br><strong>4，虚拟性：</strong>操作系统中的一种管理技术，是将物理上的一个实体变成逻辑上的多个对应物，采用虚拟化技术目的是为用户提供高效率的操作环境，例如在多进程中，CPU可以只有一个，每次只能执行一个进程，使用多进程和分时CPU技术最大限度达到多任务处理的最高效率；</p>
+<p><strong>并发：</strong>实际上是一个物理CPU，在多个进程之间多路复用，即快速切换，以达到多任务处理的目的<br><strong>并行：</strong>多个CPU同时允许多个程序，真正达到多任务处理</p>
+<p><strong>多道程序设计系统：</strong>不一定有多个CPU支持，通过CPU调度进程，快速切换，达到多任务处理的目的<br><strong>多重任务系统：</strong>配置了多个CPU，每个CPU负责运行一个进程，真正达到多任务处理；</p>
+<p><strong>操作系统的几种类型：</strong><br> <strong>批处理操作系统：</strong>将要计算的问题编程程序，连同数据说明书一起交给操作系统，通过操作用输入到计算机中，完成计算后，由操作员将结果返回给用户；<br><strong> 分时系统：</strong>即可在不同时段，执行多道程序，同样为单任务<br><strong>个人系统（微机系统）：</strong>个人计算机产生后，例如dos、linux、mac，是个人用户也可使用操作系统<br><strong>并行系统：</strong>在一台计算机中安装多个cpu，完成多任务并行处理<br><strong>分布式系统：</strong>随着网络互连的发展，资源/数据可以是分布到远隔千里的多台计算机的，例如一个程序在一台机器上执行一部分，在另外一台机器上执行一部分；<br><strong>实时系统：</strong>指外界事件或数据发送变化时，操作系统能够及时接收并快速响应处理，主要用于监控、军事控制系统，需要实时监控、响应，与通用系统不同<br><strong>网络操作系统：</strong>通过通信设施将地理上分散的多个计算机系统互连起来的系统，windows、unix、linux都算术；<br><strong>嵌入式操作系统：</strong>例如android、ios，主要用于移动设备</p>
+<h3 id="操作系统提供的服务和用户"><a href="#操作系统提供的服务和用户" class="headerlink" title="操作系统提供的服务和用户"></a>操作系统提供的服务和用户</h3><p><strong>操作系统提供的基本服务：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1，用户和计算机硬件之间的接口（分为命令行CLI、图形界面GUI等方式）</div><div class="line">2，为用户提供虚拟计算机：即在一台物理机器上，划分多个逻辑机器，再在逻辑机上安装多个操作系统，即虚拟化技术</div><div class="line">3，系统资源的管理者、分配者</div><div class="line">4，存储管理：管理存储器资源，为多道程序提供有力的保障</div><div class="line">5，文件管理：管理各种文件的新建、修改、删除等，时间文件的共享、目录管理、存取空间管理等</div><div class="line">6，设备管理：管理各种外部设备，如I/O设备</div><div class="line">7，网络通信：通常包括网上资源管理、数据通信管理、网络功能等</div></pre></td></tr></table></figure></p>
+<p><strong>操作系统提供的用户接口：</strong>用户可通过接口来调用操作系统提供的服务和功能，分为程序接口和系统调用<br><strong>系统接口：</strong>提供了访问系统资源，调用操作系统功能服务的唯一途径，而不必了解操作系统内部结构和硬件细节，例如c、java中的IO操作就是调用操作系统来完成的；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p33.png" alt=""> </p>
+<p><strong>程序接口：</strong>即应用程序之间，提供的服务接口，通常不涉及系统资源的调用</p>
+<p><strong>系统调用和过程（函数）调用的区别：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1，调用形式不同：过程（函数）调用一般调用指令，其转向地址是不变的，包含在跳转语句中； 系统调用，不包含处理程序入口 ，而仅仅提供功能号，按功能号调用；</div><div class="line">2，被调用代码位置不同：过程是静态调用，即会包含被调用者的代码，通过编译链结成为目标代码的一部分；而系统调用是动态调用，系统调用的处理代码在操作系统中，与应用程序无关</div><div class="line">3，提供方式不同：过程往往由编译系统提供，而系统调用一定由操作系统，一旦操作系统设计好，则永远不可变</div></pre></td></tr></table></figure></p>
+<p><strong>linux的系统调用：</strong>最多提供了190个系统调用，每个系统调用由两部分组成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1，核心函数：系统功能的核心代码，作为操作系统的核心驻留在内存中，是一种共享代码</div><div class="line">2，接口函数：即提供给应用程序的API，以库函数的形式存储在Linux的lib中，该库存放了所有系统调用的接口函数的目标、入口，通常由c、汇编编写；</div></pre></td></tr></table></figure></p>
+<h3 id="操作系统的结构设计"><a href="#操作系统的结构设计" class="headerlink" title="操作系统的结构设计"></a>操作系统的结构设计</h3><h4 id="操作系统的构件："><a href="#操作系统的构件：" class="headerlink" title="操作系统的构件："></a>操作系统的构件：</h4><p><strong>1，内核：</strong>操作系统的最核心，负责对硬件处理器等资源进行管理，为进程的执行提供良好的运行环境录入员<br><strong>2，进程：</strong>是并发程序设计的一个工具，通常是指执行中的一个程序；<br><strong>3，线程：</strong>早期进程是操作系统进行资源分配和调度的基本单位，但其开销过大，线程作为一个进程中的控制流，来减少系统运行进程的时空开销，一个进程可包含多个可并发执行的控制流；由此线程又称轻量级进程；<br><strong>4，管程：</strong>管理共享资源的程序，是一种同步机制，用于在多任务处理时候，同步以保证数据的正确性；<br><strong>5，类程：</strong>管理私有资源，通过类程可完成对操作系统私有资源的调用；</p>
+<p><strong>从操作系统的体系结构区分可分为：</strong>整体式、层次上、虚拟机式、客户/服务器、微内核结构<br><strong>1，整体式结构：</strong>即模块作为操作系统的基本单位，按照功能将系统分解为若干个模块来使用<br><strong>2，层次结构：</strong>把操作系统分为内核和若干模块（或进程），并按功能的调用次序排列成若干层次，各层之间只能是单向依赖或是单向调用关系，即低层为高层服务，高层可以调用低层的功能；<br><strong>3，虚拟机结构操作系统：</strong>即在一台物理计算机资源通过虚拟化技术，安装多个操作系统<br><strong>4，客户/服务器结构：</strong>随着网络技术和数据库的发展，客户/服务器逐渐成为主流操作系统</p>
+<p><strong>微内核的设计：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1，基本存储管理</div><div class="line">2，进程间通信：通过指定端口，来完成进程间通信，以消息的形式</div><div class="line">3，I/O和中断管理</div></pre></td></tr></table></figure></p>
+<p><strong>操作系统功能的实现模型：</strong><br><strong>1，非进程内核模型：</strong>老式的操作系统，即操作系统的功能都不组织成进程来实现。当中断发生时，当前运行进程的上下文现场信息将被保存，并把控制权传递给操作系统内核。操作系统具有自己的内存区和系统堆栈区，用于控制过程调用和返回。</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p35.png" alt=""> </p>
+<p><strong> 2，OS功能（函数）在用户进程内执行的模型：</strong>小型机和工作站操作系统（如类unix等），通常采用OS的所有功能（函数）在用户进程内支线的模型，在此种实现模型中，大部分操作系统功能组织成一组例行程序以供用户调用；其包括了进程控制块、用户堆栈、容纳用户程序和数据的地址空间等、还包括操作系统内核的程序、数据、系统对战区；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p34.png" alt="">            </p>
+<p><strong>3，OS功能（函数）作为独立进程执行的模型：</strong>OS功能作为独立的进程执行，将操作系统组织成一组系统进程，这些进程又称为服务进程或系统进程；</p>
+<h3 id="实例探究：windows2000-xp客户-服务器架构："><a href="#实例探究：windows2000-xp客户-服务器架构：" class="headerlink" title="实例探究：windows2000/xp客户/服务器架构："></a>实例探究：windows2000/xp客户/服务器架构：</h3><p>windows2000/xp 客户/服务器架构：采用基于对象的技术，属于客户/服务器系统结构；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p36.png" alt=""> </p>
+<p><strong>硬件抽象层：</strong>即最底层的硬件，如系统总线、I/O接口、处理器、主存等；<br><strong>设备驱动程序：</strong>是可加载的核心动态模块，是I/O系统和硬件之间的接口；<br><strong>内核：</strong>是操作系统最基本的操作，包含进程调度、线程调度、中断处理、等核心功能</p>
+<p><strong>常见操作系统：</strong>DOS、windows、unix、linux、mac os、Mach、Netware、Minix、android、ios</p>
+<h2 id="处理器调度"><a href="#处理器调度" class="headerlink" title="处理器调度"></a>处理器调度</h2><h3 id="中央处理器"><a href="#中央处理器" class="headerlink" title="中央处理器"></a>中央处理器</h3><p><strong>处理器：</strong>现代计算机中，将控制器、运算器、寄存器集成到了一块芯片上，通常称为CPU；</p>
+<p><strong>目前计算机操作系统的处理器管理分为四类：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SISD（单指令、单数据流）：表示计算机只有一个控制单元、一个算术逻辑单元、一个内存单元，只能同时处理一条指令</div><div class="line">SIMD（单指令流、多数据流）：单条指令表示计算机只有一个控制单元、多个算术逻辑单元、一个内存单元</div><div class="line">MISD（多指令流、单数据流）：</div><div class="line">MIMD（多指令流、多数据流）：多个控制单元、多个算术逻辑单元、多个内存单元，可同时处理多条指令</div></pre></td></tr></table></figure></p>
+<p><strong>寄存器：</strong>通常包含在计算机的处理器，是最顶级存储，容量小，但速度最快；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">通用寄存器：可由程序设计者使用，并指定功能，如存放操作数、寻址寄存器等</div><div class="line">数据寄存器：较为少用，通常会使用硬盘来存储数据</div><div class="line">指令寄存器：cpu需要从内存中取出指令，并存储到寄存器中，解释并执行</div><div class="line">程序计数器：保存当前正在执行的指令，并存储下一条指令的内存地址</div><div class="line">I/O地址寄存器：用于指定I/O设备</div><div class="line">数据缓冲寄存器：用于处理器和I/O设备交换数据时的缓存机制</div></pre></td></tr></table></figure></p>
+<p><strong>特权指令：</strong>只能提供给操作系统的核心程序使用的指令，如启动输入/输出设备、设置时钟、控制终端屏蔽位、清内存、建立存储键、加载 PSWenger<br><strong>非特权指令：</strong>一般用户可执行的指令<br><strong>处理器状态：</strong>即处理器的运行模式，大部分系统将处理器状态划分为管理状态和用户状态；<br><strong>中断技术：</strong>指程序执行过程中，当发生某个事件时，终止CPU上现行程序的运行，并触发该事件的处理程序；现代操作系统通常都具有处理突发事件的能力；</p>
+<p><strong>事件源：</strong>引起中断的事件<br><strong>中断装置：</strong>发现中断源头，并启动中断程序的硬件<br><strong>中断源分类：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">强迫性中断：不是运行程序所能控制的，例如机器故障终端、电源故障、主存储器出错、输入/输出设备错误等;</div><div class="line">自愿式中断：程序运行所控制的中断，例如任务调度过程中，</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p37.png" alt="">   </p>
+<p><strong>常见中断事件的处理：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1，电源故障处理：通常是将处理器中有关寄存器的信息保存，并停止处理器工作，当故障排除后，恢复中断现场，重新启动设备</div><div class="line">2，主存储器故障处理：向系统发出错误信息和出错地址</div><div class="line">3，程序性中断事件处理：通常是停止程序运行，并给予出错信息</div></pre></td></tr></table></figure>
+<p><strong>中断的优先级：</strong>即当多个中断事件发生时，计算机会按一定的算法，处理中断事件的先后顺序；<br><strong>中断的屏蔽：</strong>主机可允许或禁止某类中断的响应，例如主机可控制所有的输入/输出设备、外部中断、机器校验中断、以及某些程序中断，对于被中断的操作，有些将被丢弃，有些将被继续执行</p>
+<p><strong>实例研究：</strong>windows2000/xp 中断处理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">中断：异步的事件，可能会随时发生，与处理器正在执行的内容无关，中断主要由I/O设备、处理器时钟、定时器等；</div><div class="line">异常：同步事件，是某一个特定指令执行的结果，通常是正在运行的程序所抛出的，例如内存访问错误、调试指令等</div></pre></td></tr></table></figure></p>
+<p>简单的说，当发生中断时，设备会像操作系统内核发送消息，由系统内核根据中断事件的优先级进行处理；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p38.png" alt="">           </p>
+<h3 id="处理器调度-1"><a href="#处理器调度-1" class="headerlink" title="处理器调度"></a>处理器调度</h3><h4 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h4><p><strong>进程调度器：</strong>负责动态将处理器分配给进程，并且负责进程运行期间的各种状态切换，分为三个级别<br><strong>1，高级调度：</strong>即从多道任务（作业）中选出若干个作业，分配必要的资源，并建立与作业相对应的进程，如内存、外部设备等，最后将程序和数据调入内存，等待进程调度程序对其执行调度，并在作业完成后做后续处理操作；<br><strong>2，中级调度：</strong>又称平衡负载调度，根据存储资源量和进程当前状态，来决定主存中的进程对换，主要操作是将一些进程移除主存，使其挂起，不参与低级调度，从而起到短期平滑和调整系统负荷的作用；<br><strong>3，低级调度：</strong>又称进程调度（线程调度、短程调度），根据某种算法决定进程就绪队列中，那一个进程可以获得CPU，并运行；低级调度有两种方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">剥夺方式：当一个进程或线程在处理器上执行时，若有一个更高级别的进程或线程产生，则立即暂停当前正在执行的进程，并让出CPU分配给级别更高的进程或线程使用；</div><div class="line">非剥夺方式：一旦某个进程或线程开始在CPU上执行，则不能再让出CPU，除非该进程或线程运行结束，或出现了某些不能执行的阻塞事件；</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p39.png" alt="">             </p>
+<p><strong>调度过程要点：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1，记录进程的状态</div><div class="line">2，决定某个进程，何时获得处理器，以及占用多长时间</div><div class="line">3，将处理器分配给进程</div><div class="line">4，回收处理器</div></pre></td></tr></table></figure></p>
+<p><strong>低级调度的常见算法：</strong></p>
+<p><strong>先来先服务算法：</strong>按进程进入就绪队列的先后次序来为进程分配处理器，并运行，最简单实现的算法<br><strong>时间片轮转调度：</strong>即为每个进程分配一个时间片，当次时间片结束后，就强迫该进程让出处理器<br><strong>优先数调度：</strong>为每个进程确定一个优先数，CPU每次选择就绪队列中，优先数最大者运行<br><strong>多级反馈队列调度：</strong>将就绪进程或线程分为多级，系统响应建立多级就绪队列，优先级较高的队列一般分配给较短的时间片，处理器调度每次先从高一级的就绪进队列中选取可占有处理器的进程，同一队列则按先来先服务策略进行排队，</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p40.png" alt="">                 </p>
+<p><strong>保证调度算法：</strong>向用户做出明确的性能保证，系统必须跟踪各个进程自创建以来运行了多少CPU，以及时间<br><strong>彩票调度算法：</strong>为进程发放各种系统资源，例如发出100张彩票，某一个进程拥有20张，那么久拥有20%的中奖几率，也获得大约20%的cpu时间；<br><strong>单比率算法：</strong>为每个进程分配一个与事件发生频率成正比的优先数，运行频率越高的进程其优先数越高，调度程序总是选择优先数最高的就绪进程；<br><strong>限期算法：</strong>当一个事件发生时，对应的进程及被加入就绪进程队列，该就绪队列安装截止日期排序<br><strong>最少裕算法：</strong>计算各个进程的富裕时间，即裕度，然后选择裕度最少的进程执行，因为说明时间很紧迫，就绪后应尽快运行</p>
+<p><strong>选择调度算法的原则：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1，资源利用率：使得CPU和其它资源的使用率尽可能高，并能够并行工作</div><div class="line">2，响应时间：交互式进程从提交一个请求到接收，响应直接的时间，应该尽可能短</div><div class="line">3，周转时间：即完成作业的时间，尽可能短    </div><div class="line">4，吞吐率：单位时间内处理的作业/任务，尽可能多</div><div class="line">5，公平性：确保每个用户，每个进程获得合理的CPU或资源份额，不会出现死锁、饿死的情况</div></pre></td></tr></table></figure></p>
+<p><strong>实时操作系统的特性：</strong>指时间因素非常关键的系统，主要用于军事、监控、航天等，分为硬实时，软实时；前者意味着必须存在满足的时间限制，或者意味偶尔超过时间限制是可以容忍的；<br><strong>实时调度算法：</strong>分为动态实时调度算法，在运行时做出调度决定；静态实时调度算法，在系统启动之前就已经完成所有的调度决策；</p>
+<h4 id="作业调度"><a href="#作业调度" class="headerlink" title="作业调度"></a>作业调度</h4><p><strong>作业调度器：</strong>负责调度作业后备队列中，并根据该算法，选取作业，并建立与作业相对应的进程，或加入到进程中执行<br><strong>作业和进程的关系：</strong>作业（job）是用户提交给操作系统计算的一个独立任务，而进程是系统进行调度和资源分配的基本单元，代表了程序执行的过程，进程为完成作业任务需向系统申请分配资源，进程在“运行”、“就绪”、”等待“等多个状态的交替中，在CPU中推进，最终完成一组程序的作业；</p>
+<p><strong>作业调度算法：</strong><br><strong>1，先来先服务算法（FCFS、first come，first served）：</strong>按作业进入系统的作业队列的先后次序，先进入系统的作业优先被挑选，并分配资源，建立与作业对应的进程；非剥夺式的算法，容易实现，但效率不高，只顾及了作业等候时间，而忽略了作业要求服务时间的长短<br><strong>2，最短作业优先算法（SJF，shortest job forst）：</strong>以进入系统作业后所要求CPU时间长短为标准，总算选取估计时间最短的作业投入运行，也是非剥夺式，缺点在于需要预先知道作业所需的CPU时间，难以估计<br><strong>3，最短剩余时间有限算法（SRTF）：</strong><br><strong>4，优先数算法：</strong>根据确定的优先数来选取作业，每次总是选取优先数最高的作业<br><strong>5，响应比最高者优先算法：</strong>每当调度一个作业运行时，都要计算后备作业队列每个作业的相应比，选择响应比最高者投入运行<br><strong>6，分类调度算法：</strong>将作业分类，以达到操作系统均衡资源和兼顾大小的目的，可按作业计算时间、对内存需求、对设备需求等</p>
+<h4 id="多处理器调度"><a href="#多处理器调度" class="headerlink" title="多处理器调度"></a>多处理器调度</h4><p><strong>简介：</strong>现主流的计算机系统都会包括多个处理器，其调度的方式也有所不同.<br><strong>多处理器调度设计要点：</strong><br><strong>1，如何把进程分配到对应的处理器上运行：</strong>多个处理器对主存和I/O设备的访问都是相同的，那么所有的处理器可放入一个处理器池（pool）。可采用主从式管理结构（master/slave），即操作系统的核心部分运行在一个特殊的处理器上，而其它处理器则运行用户程序，较为容易实现；也可采用分布式管理结构（peer-to-peer），操作系统核心可在所有处理器上执行，每个处理器也可实现自我调度，此种方式则较为复杂；<br><strong>2，单个处理器上是否支持多道程序设计：</strong><br><strong>3，如何指派进程：</strong></p>
+<p><strong>多处理器调度算法：</strong><br><strong>1，负载共享算法：</strong>即进程不分配给某个特定的处理器，由系统来维护一个全局就绪线程队列，当一个处理器空闲时，就选择一个就绪线程占有处理器<br><strong><em>优点：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">将负载均分到所有可用的处理器上，保证处理器效率的提高；</div><div class="line">不需要集中的一个调度程序，一旦某个处理器空闲，操作系统的调度程序即可允许在该处理器上选择下一个运行的线程；</div></pre></td></tr></table></figure></p>
+<p><strong><em>缺点：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">就绪线程队列必须被互斥访问，当系统包含很多个处理器，且多个处理器同时挑选进程时，会成为性能的瓶颈；</div><div class="line">被抢占的线程很难在同一个处理器上恢复执行，当处理器带有高速缓存时，</div></pre></td></tr></table></figure></p>
+<p><strong>2，群调度算法：</strong>将一组进程在同一时间一次性调度到一组处理器上运行<br><strong><em>优点：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">一次性调度一组处理器，较少调度次数，产生的时空代价</div><div class="line">当紧密的进程同时执行时，同步互斥造成等待的时间将减少，进程的切换相应减少，系统性能也随之提高</div></pre></td></tr></table></figure></p>
+<p><strong>3，处理器专派调度算法：</strong>把一个应用指派给一组处理器，一旦应用被调度并执行，它的每一个线程被分配一个处理器，并占用直到这个运行结束；<br><strong>4，动态调度算法：</strong>由操作系统和应用进程共同完成调度，操作系统负责再应用进程之间划分处理器。</p>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><h3 id="进程简介"><a href="#进程简介" class="headerlink" title="进程简介"></a>进程简介</h3><p><strong>进程：</strong>即执行中的一个程序，是操作系统进行资源分配和系统调度的最基本单元，每个进程都拥有自己独立的存储空间和运行环境；<br><strong>并发：</strong>实际是一个CPU，在多个进程之间快速切换，来达到多任务处理的目的<br><strong>并行：</strong>多个CPU，分别处理多个进程，真正达到多任务处理；</p>
+<p><strong>进程的特性：</strong><br><strong>1，结构性：</strong>进程包含了数据集合和运行于其之上的程序，每个进程通常有四块组成（控制块、程序块、数据块、堆栈）<br><strong>2，共享性：</strong>多个进程可以共享相同的程序、数据等<br><strong>3，独立性：</strong>进程时系统进行资源分配和调度的基本单元，通常进程与进程之间是互相独立的<br><strong>4，制约性：</strong>并发进程之间存在着制约关系，进程在进行的关键点上需要互相等待，以保证程序多次执行结果是一致的；<br><strong>5，并发性：</strong>进程是可并发的执行的，由于资源有限，进程的执行不是一次到底，而是可能会被暂停，例如一个进程在CPU上运行一段时间后，可能会被暂停，CPU转让给另外一个进程执行； </p>
+<p><strong>进程的内存映象：</strong>当一个程序被加载到内存进行计算，就构成了进程。操作系统将进程实体和运行环境，称为进程上下文，通常由三个部分组成；<br><strong> 用户级上下文（user level context）：</strong>由用户进程的程序块、用户数据块、用户堆栈组成的进程地址空间<br><strong> 系统级上下文（system level context）：</strong>包含进程的标识信息、现场信息、控制信息、进程环境、即系统堆栈等组成的进程地址空间<br><strong> 寄存器上下文（register context）：</strong>由各类寄存器组成，如程序寄存器、程序计数器、地址寄存器、通用寄存器</p>
+<p><strong>操作系统的控制表：</strong>主要分为四类，进程控制表、存储控制表、I/O控制表、文件控制表<br><strong>进程控制表：</strong>用于管理进程及其相关信息<br><strong>存储控制表：</strong>用于管理主存储器、辅存储器信息<br><strong>I/O控制表：</strong>管理计算机系统的I/O设备和通道，主要包括I/O设备和通道是否可用，分配信息，状态，通道传输数据所在存储区<br><strong>文件控制表：</strong>管理文件，主要包括被打开文件信息、状态等<br>.<br><strong>进程控制表简单包括包括：</strong>程序块、数据块、堆栈、进程控制块四部分组成<br><strong>程序块：</strong>即将要被执行的程序，规定了进程执行一次完成的功能，通常是纯代码，作为系统资源被多个进程共享<br><strong>数据块：</strong>即程序运行中包括的数据，例如局部变量、全局变量、常量等存放区；<br><strong>系统/用户堆栈：</strong>每个进程都将捆绑一个堆栈，用于解决程序执行过程中的信息存储和参数传递<br><strong>进程控制块：</strong>描述、记录进程执行的动态变化及有关信息的数据结构，通常包含三类信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">标识信息：唯一标识一个进程，通常由用户外部标识符合系统内部标识符组成，常用的标识信息包括进程标识符号、进程每、用户组名等</div><div class="line">现场信息：保留一个进程在运行时存放在处理器现场的各种信息，而当进程重新恢复时，也要改恢复处理器现场</div><div class="line">控制信息：管理和调度一个进程，常见的控制信息如进程状态、等待事件、等待原因、进程优先级、队列、CPU占用信息、资源分配信息等...</div></pre></td></tr></table></figure></p>
+<h3 id="进程切换"><a href="#进程切换" class="headerlink" title="进程切换"></a>进程切换</h3><p><strong>简介：</strong>中断是激活操作系统的唯一方法，它暂时中止当前运行进程，把处理器切换到操作系统的控制下，当操作系统获得处理器控制权后，它就可以实现进程切换；<br><strong>进程切换的步骤如下：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1，保存被中断进程的处理器现场</div><div class="line">2，修改被中断进程的有关信息，如进程状态等</div><div class="line">3，将被中断进程加入到有关队列</div><div class="line">4，选择下一个占有处理器的进程运行</div><div class="line">5，修改被选中进程的有关信息</div><div class="line">6，恢复处理器现场</div></pre></td></tr></table></figure></p>
+<p><strong>进程控制：</strong>是处理器的另外一个重要工作，负责控制进程的生命周期<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1，进程创建：在主进程表中增加一项，并分配内存空间，地址，加入进程队列</div><div class="line">2，阻塞和唤醒：阻塞是指进程让出处理器，去等待一个事件完成；而唤醒是使该进程阻塞的进程，重新恢复运行</div><div class="line">3，挂起和激活：与阻塞和唤醒类似；</div><div class="line">4，终止进程：即停止一个进程的运行</div><div class="line">5，撤销进程：通常是进程正常运行结束、或执行了非法指令、严重的输入/输出故障，等待时间过长等...</div></pre></td></tr></table></figure></p>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p><strong>进程的生命周期：</strong>即一个进程从创建到消亡的整个过程，可分为三态模式、五状模式；</p>
+<p><strong>三态模型：</strong></p>
+<pre><code>就绪状态：程序已经完整的加载到内存，等待系统调度，分配cpu运行
+运行状态：进程在cpu中执行
+等待状态：又称阻塞或睡眠状态，指进程不具备运行条件，正在等待某个事件的完成
+</code></pre><p><img src="http://devfqh.com/images/ComputerBase/CBase_p41.png" alt=""> </p>
+<p><strong>五态模型：</strong></p>
+<p><strong>保持状态：</strong>当一个程序被操作性系统选为作业的时候<br><strong>就绪状态：</strong>程序已经完整的加载到内存，等待系统分配cpu运行<br><strong>运行状态：</strong>当在内存中保持这个状态，并被cpu执行<br><strong>等待状态：</strong>又称阻塞或睡眠状态，指进程不具备运行条件，正在等待某个事件的完成，例如等待IO设备操作等<br><strong>终止状态：</strong>即进程运行完毕后，将会成为终止状态，并被回收</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p42.png" alt="">                  </p>
+<p><strong>作业（job）：</strong>是用户提交给操作系统的一个独立任务，一个进程可以包含很多个任务，进程在CPU中推进，最终完成一组程序的作业；<br>每个作业都是程序，但并不是所有的程序都是作业；</p>
+<p><strong>具有挂起功能的进程生命周期：</strong>即进程在运行过程中，出现了等待事件，则会被挂起，当事件解除后，进程会重新回到运行状态；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p43.png" alt="">     </p>
+<p><strong>队列（等待列表）：</strong>当很多进程并发时，操作系统就需使用队列来存放这些信息，以保证顺序的执行，通常操作系统有三个队列，作业队列、就绪队列、I/O队列</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p44.png" alt="">      </p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p><strong>简介：</strong>早期操作系统，进程是系统进行资源分配和调度的基本单元，其缺点在于：</p>
+<p>1，进程其拥有独立的存储空间和内存地址，时空开销大<br>2，属于单线程结构，只有一个执行控制流，只能同时处理一个请求<br>3，不适于并行计算和分布式并行计算的要求，对于多处理器和分布式计算环境，进程之间大量频繁通信，会大大降低并行度<br>4，不适合客户/服务器计算的要求，因为客户端会同时发送多个请求，而服务端同时只能处理一次</p>
+<p><strong>线程：</strong>是进程中的一条执行控制流，负责执行指令代码，是现代操作系统进行资源分配和调度的最小单元；<br><strong>多线程结构：</strong>即一个进程中拥有多个线程（执行控制流），真正的减少程序并发执行的时间、空间开销，其本质开始CPU抢夺式资源，不断的切换进程、线程来达到多任务处理；<br>如果说操作系统引入进程，是为了多个程序能够并发执行，那么操作系统引入线程，则是为了减少程序并发执行时所付出的时间、空间开销；<br><strong>单线程进程（模型）：</strong><br><img src="http://devfqh.com/images/ComputerBase/CBase_p45.png" alt="">     </p>
+<p><strong>多线程进程（模型）：</strong><br><img src="http://devfqh.com/images/ComputerBase/CBase_p46.png" alt="">      </p>
+<p><strong>线程的生命周期：</strong>与进程类似，可分为三态、五态两种区分方式，就绪、运行、等待、保持、终止；</p>
+<h3 id="实例研究-windows2000-xp的进程与线程："><a href="#实例研究-windows2000-xp的进程与线程：" class="headerlink" title="实例研究 - windows2000/xp的进程与线程："></a>实例研究 - windows2000/xp的进程与线程：</h3><p>包含三个层次的执行对象，进程、线程、作业；<br>1，作业、进程、线程是基于对象来实现的<br>2，一个可执行的进程可包含多个线程<br>3，进程或线程两者内部都有同步设施</p>
+<p>当用户首次注册时，windows2000/xp会为用户分配一个访问令牌access token，其包含安全标识和进程凭证，此用户建立的每一个进程都均有这个访问令牌的拷贝；系统内核使用访问令牌来验证用户是否安全权限；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p47.png" alt="">  </p>
+<p><strong>对象及对象管理器：</strong>windows xp是基于面向对象的系统，其系统资源都是通过对象来表示的，主要定义了两类对象；<br><strong>1，执行体对象：</strong>由执行体的各种组件实现的对象，例如进程、线程、区域、文件、时间、对象目录、端口、终端、关键字、目录对象等<br><strong>2，内核对象：</strong>是由系统内核实现的最原始对象，例如电池对象、内核过程对象、延迟过程调用对象、中断对象、</p>
+<h3 id="并发编程"><a href="#并发编程" class="headerlink" title="并发编程"></a>并发编程</h3><p><strong>顺序程序设计：</strong>早期程序设计方案，只有当一个操作结束后，才能继续后续的操作；</p>
+<p><strong>进程的并发性：</strong>即程序的执行不再是顺序的， 一个程序未执行完，另外一个程序便已开始执行，一组进程的执行在时间上时重叠的；例如两个进程A和B，他们执行的操作为a1、a2、a3、b1、b2、b3，这是顺序执行的，但如果采用并发执行那么其操作将会是交叉随机的，例如a1、b3、b2、a2、a3、b1等情况；</p>
+<p><strong>采用并发程序的好处：</strong><br>1，若为单处理器系统，可有效的利用资源，使处理器和I/O设备之间同时工作，充分发挥机器的并行能力<br>2，若为多处理器系统，可让进程在不同处理器上，物理的并行工作，真正达到多任务并行处理</p>
+<p><strong>管道（pipe）：</strong>unix和c语言的传统通信机制，也是unix发展最有意义的贡献之一。发送者进程和接受者进程之间通过管道交流信息；<br>1，直接通信方式：直接通过send、receive来实现进程通信，通常是tcp<br>2，简介通信方式：通过一个共享的数据源（信箱），来完成通信，例如udp<br><img src="http://devfqh.com/images/ComputerBase/CBase_p48.png" alt="">         </p>
+<p><strong>进程安全：</strong>当资源可被多个进程同时使用，可能会操作数据错误，不安全；，例如购买飞机票问题，假设有两个终端分别运行进程T1、T2，可同时共享数据余票，那么就会出现，同张票可能会被卖出多次的错误；</p>
+<p><strong>同步：</strong>操作共享数据通常使用同步来解决，即资源同一时刻只能被一个进程所访问，其它进程需要等待上一个进程释放锁，才可访问；.<br>在大部分操作系统中，文件都是同步的不可共享的：</p>
+<p><strong>同步过多造成的问题：</strong><br><strong>死锁：</strong>通常是在同步过多的情况下发送，例如有两个线程A和B，进程A已经占用了file1，并等待file2；而进程B占用了file2，并等待file1；此时就会造成死锁，程序停在这里了，占用资源，死锁的条件<br><img src="http://devfqh.com/images/ComputerBase/CBase_p49.png" alt="">      </p>
+<p><strong>饿死：</strong>与死锁相反，发送在操作系统对进程分配资源有太多限制的时候，例如一个操作系统规定一个进程只有在所需的所有资源都为其占用时才能执行；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p50.png" alt="">               </p>
+<h2 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>存储管理：</strong>是操作系统最终要的组成部分，负责管理计算机系统的主存储器，任何程序及数据都必须占用主存空间后才能执行；<br><strong>主存通常包括两部分:</strong><br><strong>系统区：</strong>存放操作系统核心程序，以及标准子程序；<br><strong>用户区：</strong>存放用户的程序和数据，供正在执行的应用程序使用；</p>
+<p><strong>主存储器的层次结构：</strong>通常分为寄存器  —&gt;  高速缓存  —-&gt;  主存（内存）  —-&gt;  磁盘   —-&gt;   硬盘 —-&gt; 可移动存储设备等；越往上速度越快，同时价格也越高<br><img src="http://devfqh.com/images/ComputerBase/CBase_p51.png" alt="">     </p>
+<h3 id="连续存储空间管理"><a href="#连续存储空间管理" class="headerlink" title="连续存储空间管理"></a>连续存储空间管理</h3><p><strong>连续存储空间管理：</strong><br><strong>单用户连续存储管理：</strong>又称单分区模式，适用于单用户情况，主存储分为系统区和用户区；任何时刻，主存最多只能有一到程序，各个作业的程序只能按次序一个一个装入主存运行；<br><strong>固定分区存储管理：</strong>将进入主存的用户作业划分一块连续存储区域，将作业装入该连续存储区域，若有多个作业装入主存，则可并发执行，是满足多道程序并发设计的最简单存储管理技术；<br><strong>可变分区存储管理：</strong>又称变长分区模式，按作业的大小来划分分区，但划分的时间、大小、位置都是动态的，系统在作业装入主存执行之前并不建立分区，当要装入一个作业时，根据作业需要的主存容量来查看主存中是否有足够空间；</p>
+<p><strong>常见可变分区管理的分配算法：</strong><br><strong>1，最先适应（first  fit）分配算法：</strong>每次分配时，总是从未分配区的链表头查找为分配表，直到只找到第一个满足长度要求的空闲区为止<br><strong>2，下次适应（next fit）分配算法：</strong>每次分配时，总是从未分配区上次扫描结束处，顺序查找未分配表或链表，直到只找到第一个满足长度要求的空闲区为止<br><strong>3，最优适应（best fit）分配算法：</strong>扫描整个未分配区表，从空闲去中挑选一个能满足作业要求的最小分区进行分配；<br><strong>4，最坏适应（worst fit）分配算法：</strong>扫描整个未分配区，挑选一个最大空闲去分配给作业使用<br><strong>5，快速适应（quick fit）算法：</strong>为那些经常用到的长度空闲去，设立单独空闲链表，较为复杂….</p>
+<h3 id="分页式存储管理"><a href="#分页式存储管理" class="headerlink" title="分页式存储管理"></a>分页式存储管理</h3><p>采用分区方式管理，每道程序总是要求占用主存的一个或多个连续区域，会导致在主存储中产生许多碎片，且有时为了接纳一个新的作业要移动已在主存的信息，十分不方便，并影响开销；<br><strong>采用分页式管理：</strong>将一个作业存放到若干不相邻的分区中，即可免去移动信息的工作，又可充分利用主存信息，尽量减少主存内的碎片；<br><strong>基本原理：</strong></p>
+<p><strong>1，页框：</strong>物理地址分成大小相等的许多区，每个区称为一块<br><strong>2，页面：</strong>逻辑地址分成大小相等的区，区的大小与块的大小相等，每个区称一个页面<br><strong>3，</strong>逻辑地址形式，分为页号和单元号</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p52.png" alt=""></p>
+<p><strong>分页式存储空间的分配和去配：</strong>将主存的可分配区按页面大小分成若干块，主存分配以块为单元；最简单的方法通过一张位示图来记录主存分配情况，指出已分配的块和尚未分配的块以及当前有多少空闲块；</p>
+<h3 id="分段式存储管理"><a href="#分段式存储管理" class="headerlink" title="分段式存储管理"></a>分段式存储管理</h3><p><strong>分段式存储管理：</strong>以段为单元进行存储分配，其二维逻辑地址如下;<br>分段式存储管理的实现可基于可变分区存储管理的原理，为作业的每一段分配一个连续的存储空间，但是个个段之间不一定是连续存储的；<br>。。。 看不懂。。。</p>
+<h3 id="虚拟存储管理"><a href="#虚拟存储管理" class="headerlink" title="虚拟存储管理"></a>虚拟存储管理</h3><p><strong>简介：</strong>上述的各种存储管理方式，必须为作业分配足够的存储空间，以装入有关作业的全部信息，且作业的大小不可超过主存可用空间；<br>较为复杂，对于应用开发人员，无需深入了解，此处略过。。。<br>但将有关作业的全部信息都装入主存后，作业执行时实际上不是同时使用全部信息的，有些信息甚至运行一遍也不会被使用；<br><strong>虚拟存储器：</strong>即具有层次结构存储器的计算机系统中，采用自动实现部分装入和部分对换功能，即可通过作业提交时，先全部进入辅助存储器，将作业即将允许的一部分进入主存储；为用户提供一个比物理主存容量大得，就好像计算机系统具有一个大容量的主存储器，通常称为虚拟存储器；<br><strong>虚拟存储器概念图：</strong><br><img src="http://devfqh.com/images/ComputerBase/CBase_p53.png" alt=""></p>
+<p><strong>请求分页虚拟存储的页表结构：</strong>与分页存储不同，仅仅将当前运行作业和进程进入主存，那么可能会出现某些要执行的页面或资源数据不在主存中，即缺失数据页的情况，因此需要为页表扩充字段，如下，添加驻留标志，指定该页存储数据存储地址；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p54.png" alt="">     </p>
+<p><strong>请求分页虚拟存储地址转换：</strong><br><img src="http://devfqh.com/images/ComputerBase/CBase_p55.png" alt="">           </p>
+<h2 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h2><h3 id="I-O-硬件原理"><a href="#I-O-硬件原理" class="headerlink" title="I/O 硬件原理"></a>I/O 硬件原理</h3><p><strong>简介：</strong>现代计算机系统中配置了大量外围设备，通常分为两类，一类是存储型设备，如u盘、移动硬盘等；一类是I/O设备，负责接受用户请求，并返回计算结果；</p>
+<p><strong>I/O系统：</strong>通常指I/O设备及其接口线路、控制部件、通道和管理软件的组合；<br><strong>I/O操作：</strong>指计算机的主存和外围设备的介质之间信息传送操作；</p>
+<p><strong>I/O控制方式：</strong>即CPU如何对I/O设备的职能进行合理分工<br><strong>询问方式：</strong>又称程序直接控制方式，即CPU会不断的查询I/O设备的就绪情况，如果已经就绪则开始传送，否则重复询问；每传递一个字节都需修改计数值、内存地址，并再次询问I/O设备状态；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p56.png" alt="">              </p>
+<p><strong>中断方式：</strong>首先cpu告知IO设备即将开始传输，但是cpu并不需要不断检测IO设备的状态，当IO设备准备好时，他通知中断CPU，在此过程中CPU还可处理其它的工作，不至于浪费操作；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p57.png" alt=""></p>
+<p><strong>直接存储方式：</strong>适用于在高速IO设备间传输大量数据库，例如磁盘、内存，而不需要通知cpu的数据传输<br><img src="http://devfqh.com/images/ComputerBase/CBase_p58.png" alt=""><br>             、<br><strong>通道方式：</strong>可减少CPU对I/O的干预，从字节的干预减少到以数据块为单位的干预，而且每次CPU干预时，并不需要做数据拷贝，仅仅需发送一条启动I/O指令，以及完成I/O结束中断操作处理；</p>
+<h3 id="I-O-软件原理"><a href="#I-O-软件原理" class="headerlink" title="I/O 软件原理"></a>I/O 软件原理</h3><p><strong>I/O软件的设计应该包含四个层次：</strong><br><strong>1，I/O中断处理程序：</strong>即处理当一个进程请求I/O操作时，如果I/O设备出错，则需要将该进程挂起，处理中断操作；<br><strong>2，I/O设备驱动程序：</strong>即连接I/O硬件设备，和操作系统之间的接口驱动；<br><strong>3，与设备无关的操作系统I/O软件：</strong>对于 I/O操作而言，各种操作系统的实现各不同，因此需要暴露接口给外界使用<br><strong>4，用户层I/O软件：</strong>即最终端用户操作的软件，例如使用java、.net、php、c编写的IO程序，会调用操作系统底层IO接口</p>
+<p><strong>通道I/O方式：</strong>即在I/O硬件和操作系统之间建立一条传输通道<br><img src="http://devfqh.com/images/ComputerBase/CBase_p59.png" alt=""></p>
+<p><strong>缓冲技术：</strong>为了解决CPU和外围设备之间速度不匹配，效率低，可采用缓冲方式；主要实现方法是在主存开辟一个存储区作为缓冲区，专门存放临时I/O的数据；<br><strong>基本思想是：</strong>当一个进程执行读写数据时，先向系统申请一个缓冲区，然后将数据高速送到缓冲区，装满后，再传输到目标中；</p>
+<p><strong>单缓冲：</strong>每当一个用户进程发出一个I/O请求时，操作系统就在主存的系统区中开设一个缓冲区<br><strong>双缓冲：</strong>即传输数据时，先填满缓冲区1，然后操作系统可将缓冲区1的数据送到用户进程去，再填满缓冲区2，依次执行；<br><strong>多缓冲：</strong>又称循环缓冲，即分别填满多个缓冲区，再传输到用户进程中；</p>
+<p><strong>驱动调度技术：</strong>即如何分配并发的多个输入/输出请求，需采用一种调度策略，能够按最佳次序执行要求处理IO请求；<br>调度算法较于复杂，应用层人员无需深入了解；</p>
+<p><strong>提高I/O速度的方法：</strong><br><strong>1，提前读：</strong>用户经常采用顺序方式访问文件的各个盘块上数据，当读取当前盘块数据时，即可知道下次要读出的盘块地址；<br><strong>2，延迟写：</strong>即采用缓冲的方式，先一次性写入到缓冲中，最后再传输到目标文件中；</p>
+<p><strong>windows2000/xp的IO系统组成：</strong><br><img src="http://devfqh.com/images/ComputerBase/CBase_p60.png" alt=""></p>
+<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><h3 id="文件简介"><a href="#文件简介" class="headerlink" title="文件简介"></a>文件简介</h3><p><strong>文件系统的最基本功能：</strong></p>
+<pre><code>1，文件的存取
+2，目录的建立和维护
+3，存储空间的分配和管理
+4，提供合适的文件存储方法
+5，实现从逻辑文件到物理文件的转换
+</code></pre><p><strong>文件：</strong>是计算机组织数据的基本单元，组成文件的信息各式各样，例如各种源程序、数据、编译文件、多媒体文件等；<br><strong>文件类型：</strong>用于区分文件的类型，通常通过后缀名来区分；<br><strong>文件属性：</strong><br>    基本属性：文件名、文件所有者、文件授权者、文件长度等<br>    类型属性：普通文件、目录文件、系统文件、隐藏文件、设备玩家等<br>    管理属性：如创建时间、最后存取时间、最后修改时间等<br>    控制属性：逻辑记录长、文件当前长、文件最大长、以及允许的存取方式标志、关键字位置、关键字长度等</p>
+<p><strong>文件存储方法：</strong><br>    1，顺序存取：按记录顺序进行读/写操作<br>    2，直接存取：即按任意次序直接读写文件，需得到文件的物理块号；<br>    3，索引存取：基于索引文件的索引存取方法，快速</p>
+<p><strong>文件的使用：</strong>最基本的步骤如下<br>    1，建立文件<br>    2，打开文件<br>    3，进行读写操作<br>    4，关闭文件</p>
+<h3 id="目录简介"><a href="#目录简介" class="headerlink" title="目录简介"></a>目录简介</h3><p><strong>简介：</strong>目录是用于管理文件的分组、建立、维护、检索的结构；<br>unix/linux采用了一种特殊的目录，为了减少检索文件访问的物理块数，将文件目录中项的文件和其它管理信息分开，后者单独组成定长的一个数据结构，称为索引节点（i-node），存储一些文件/目录信息；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p61.png" alt=""></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p62.png" alt="">            </p>
+<p><strong>一级目录结构：</strong>即最基本的文件结构，在操作系统中构造一张线性表，与每个文件有关的属性占用一个目录项，就成了一级目录结构；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p63.png" alt="">  </p>
+<p><strong>二级目录结构：</strong>即一级目录为主文件目录，用于管理所有用户文件目录，而二级目录为用户真实的文件目录；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p64.png" alt="">  </p>
+<p><strong>树形目录结构：</strong>现代操作系统的目录结构，最为常用，例unix/linux系统的目录如下；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p65.png" alt=""></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p66.png" alt="">                          </p>
+<p><strong>文件的存储：</strong>通常有页、块、段、组等组织方式，管理可通过顺序、直接、队列、栈、索引等方式；</p>
+<p><strong>常见的文件系统：</strong><br>    FAT32：单个文件不可大于4GB<br>    NTFS：碎片少、性能佳、安全性强、可压缩 NTFS的文件、设定权限、支持大于4GB的单个文件等</p>
+<p>具体细节无需理解，由操作系统实现；</p>
+<h2 id="操作系统安全"><a href="#操作系统安全" class="headerlink" title="操作系统安全"></a>操作系统安全</h2><p>计算机安全是一项复杂的学科，其包括了操作系统安全、网络安全、数据库安全等多项分支；</p>
+<p><strong>对于计算机系统和网络通信有四项基本安全要求：</strong><br><strong>1，机密性（confidentiality）：</strong>要求计算机系统中的信息只能由被授权者进行访问，例如打印、显示、查看等其它形式<br><strong>2，完整性（integrity）：</strong>要求计算机系统中的信息只能被用户所修改，删除、创建等<br><strong>3，可用性（availability）：</strong>防止非法独占资源，每当合法用户需要时，总能访问到合适的计算机系统资源，为其提供所需的服务<br><strong>4，可靠性（authenticity）：</strong>要求计算机系统能证实用户的省份，防止非法用户侵入系统</p>
+<p><strong>常见的普通威胁：</strong><br><strong>1，切断：</strong>系统的资源被破坏，或变得不可用，是对可用性的威胁，例如破坏硬盘、切断通信线路等<br><strong>2，截取：</strong>未经授权的用户、程序获得了对计算机系统某资源的访问，这是机密性的威胁，例如在网络中窃取数据<br><strong>3，篡改：</strong>未经授权的用户、程序获得了对计算机系统某资源的访问，而且还可进行篡改，对完整性的破坏，例如修改文件数据等<br><strong>4，伪造：</strong>未经授权的用户将伪造的对象插入到系统中，这是对合法性的破坏</p>
+<p><strong>操作系统保护层次：</strong><br><strong>无保护：</strong>当敏感的过程是在独立的时间内运行的<br><strong>隔离：</strong>意味着每个进程并不感觉到其它进程的存在，当然也没有任何进程通信及共享资源<br><strong>共享或不共享：</strong>即定义资源是否可被任意进程访问<br><strong>通过访问控制的共享：</strong>操作系统检查特定用户对特定对象的访问许可<br><strong>通过权能的共享：</strong>扩展了访问控制的概念，允许动态生成对共享对象的访问权利<br><strong>限制对象的使用：</strong>不仅限制了对对象的访问，而且还限制存取后对对象的使用方式；</p>
+<p><strong>内存储器的保护：</strong>需分离各个进程的存储空间，否则一个进程能够不经意的写入到另外一个进程的存储空间，这后一个进程就可能会不正确运行；</p>
+<p><strong>面向用户的访问控制：</strong>最普遍的方法是用户登录，即通过用户标识名和口令来完成；<br><strong>面向数据的访问控制：</strong>即针对数据权限表，再进行过滤；</p>
+<p><strong>入侵技术：</strong>通常分为两种，病毒和黑客，其获取口令的方式通常有<br>1，尝试所有标准的口令试猜，例如root、admin、test<br>2，尝试一些简单常用的口令<br>3，收集用户信息，如姓名、生日、业余爱好、电话号码、身份证、车牌号等<br>4，通过特洛伊木马绕过访问限制<br>5，窃听远程用户和主机系统之间的线路</p>
+<p>对于前面集中猜试的方式，很难实现入侵，可通过限制登录失败次数，并冻结用户来解决；主要是防止木马和窃听远程用户和主机系统之间；</p>
+<p><strong>口令保护：</strong>系统的第一道防线，即提供用户标识和口令即可登录，并通过权限来验证<br><strong>入侵检测：</strong>系统的第二道防线，即通过某些算法来检测是否为入侵者，因为入侵者和授权用户的典型行为不同，可能会查看隐私文件、收集数据等操作；</p>
+<p><strong>病毒：</strong>通常是携带在操作系统中的恶意代码或程序块，难以发现；<br><strong>主要阶段：</strong>潜伏   —-&gt;  传播    ——&gt;   触发  —–&gt;   执行<br><strong>病毒类型：</strong><br><img src="http://devfqh.com/images/ComputerBase/CBase_p67.png" alt=""> </p>
+<p><strong>反病毒方法：</strong>最理想的方式就是预防，但也很难解决所有的问题，另外一种比较好的方式为<br><strong>检测：</strong>一旦发生感染，就要确定病毒的位置<br><strong>识别：</strong>当检测成功后，就要识别病毒的类型<br><strong>清楚：</strong>一旦识别出病毒，根据病毒消除，并回复程序原来的状态</p>
+<p><strong>安全操作系统的设计：</strong><br>1，基本功能如用户认证、存储器保护、共享资源同步、进程通信等<br>2，隔离，各个进程之间应该是隔离的，互不影响<br>3，内核，完成最底层支撑功能，如进程间通信，信号传递等等<br>4，分层设计，各层之间应该是分离的，例如按硬件、核、操作系统、用户等<br>5，环结构，是分层设计的改进及具体化，较为复杂</p>
+<p><strong>加密机制：</strong>即将信息编码成像密文一样难解形式的技术；<br><img src="http://devfqh.com/images/ComputerBase/CBase_p68.png" alt="">         </p>
+<p><strong>基本的加解密算法：</strong>虽然加密算法很多，但最基本的有两种，其它算法都是由此演变而来的；<br><strong>1，易位法：</strong>通过重新排列明文中各个字符的位置来形成密文，易位时，先设计一个密钥，对它对明文进行易位，并形成密文；解密时工具密钥再排序<br><strong>2，置换法：</strong>将明文中的字母按英文字母顺序，往后移动位生成新的替代字母，例如house就变成了hrxvh</p>
+<p><strong>对称加密：</strong>即加密和解密使用的是同一个密钥（key），例如常见的DES，但其缺点在于需要传递密钥给客户端，此过程可能会被拦截，那么加密和解密就同样的密钥，则出错；</p>
+<p><strong>非对称加密：</strong>即提供了两个密钥（key），一个公钥（public key），一个私有钥（private key），私钥不能外泄，而公钥可以外泄；例如向银行请求一个公钥，通过公钥加密后，那么只有私钥的持有人，银行才能对消息进行解密；与对称加密不同的时，银行不需要将私要通过网络发出去，因此安全性大大提高，目前非对称加密算法是RAS算法；</p>
+<p>其它方式还有审计、签名生成等方式；</p>
+<p><strong>实例研究 - windows 2000/xp的安全机制：</strong><br>安全登录机制：要求用户访问系统之前，输入唯一的登录标识符和密码来标识自己；<br>谨慎访问控制：允许资源的所有者决定哪些用户可以访问资源和他们可以如何处理资源，通常以角色、用户组、权限的方式控制；<br>安全审核：提供检测和记录与安全性有关的任何创建、访问、删除系统资源<br>内存保护：防止非法进程访问其它进程的内存<br>活动目录：<br>Kerberos5身份验证协议：<br>基于Secure Sockets Layer 3.0 的安全通道：</p>
+<p><strong>windows 2000/xp - 安全性系统组件：</strong><br>1，安全引用监视器（SRM）：负责对对象的安全访问检查、处理权限、及产生任何结果安全审核消息<br>2，本地安全权限（LSA）服务器：运行映象LSASS.exe的用户态进程，负责本地系统安全性规则，用户身份验证等<br>3，LSA策略数据库：包含了系统安全性规则设置的数据库<br>4，SAM数据库：包含定义用户、组、密码的数据库<br>5，默认身份认证包：<br>6，网络登录服务：是一个以响应网络登录请求的服务，与本地系统度类似</p>
+<p><strong>访问控制策略：</strong>当用户登录到windows2000/xp后，系统会以名字/口令的方式验证，如果登录成功，则为改用户创建一个进程，同时又有一个access token与这个进程对象关联；</p>
+<p><strong>access token的主要用途：</strong><br>    1，负责协调所有必须的安全信息，当一个用户相关联的任何进程试图访问时，安全子系统使用与该进程相关联的访问令牌来确定用户的访问权<br>    2，允许每个进程以一种受限的方式修改自己的安全特性，但不会影响代表用户允许的其它进程</p>
+<p><strong>访问令牌的通用结构：</strong><br>    1，安全ID：在网络中唯一确定一个用户，通常是登录名<br>    2，组SID：关于该用户属于那些组的列表<br>    3，特权：改用户可调用的一组对安全性敏感的系统服务<br>    4，默认的所有者：如果该进创建了一个对象，这个域确定了谁是新对象的所有者，通常新进程的所有者和派生它的进程的所有者相同，可指定相同的组SID<br>    5，默认ACL：这是适用于保护用户创建的所有对象的初始表，用户可为他拥有的或所在组所拥有的任何对象修改ACL</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://avatars3.githubusercontent.com/u/13724193?v=4&u=badffa5b147f5babec97aa66ae75e1e3e1d50592&s=400" alt="janino WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://avatars3.githubusercontent.com/u/13724193?v=4&u=badffa5b147f5babec97aa66ae75e1e3e1d50592&s=400" alt="janino Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机基础/" rel="tag"># -计算机基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/22/1-计算机组成/" rel="next" title="1,计算机组成">
+                <i class="fa fa-chevron-left"></i> 1,计算机组成
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/16/3-计算机网络/" rel="prev" title="3,计算机网络">
+                3,计算机网络 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/05/13/2-操作系统原理/"
+           data-title="2,操作系统原理" data-url="http://devfqh.com/2015/05/13/2-操作系统原理/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/blog_logo.png"
+               alt="janino" />
+          <p class="site-author-name" itemprop="name">janino</p>
+           
+              <p class="site-description motion-element" itemprop="description">努力，到无能为力！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/janino-fqh/" target="_blank" title="博客园">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  博客园
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/janino" target="_blank" title="github地址">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github地址
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/janino-fqh/" title="博客园" target="_blank">博客园</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/janino" title="github地址" target="_blank">github地址</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统概述"><span class="nav-number">1.</span> <span class="nav-text">操作系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统提供的服务和用户"><span class="nav-number">1.2.</span> <span class="nav-text">操作系统提供的服务和用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统的结构设计"><span class="nav-number">1.3.</span> <span class="nav-text">操作系统的结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作系统的构件："><span class="nav-number">1.3.1.</span> <span class="nav-text">操作系统的构件：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例探究：windows2000-xp客户-服务器架构："><span class="nav-number">1.4.</span> <span class="nav-text">实例探究：windows2000/xp客户/服务器架构：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理器调度"><span class="nav-number">2.</span> <span class="nav-text">处理器调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中央处理器"><span class="nav-number">2.1.</span> <span class="nav-text">中央处理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理器调度-1"><span class="nav-number">2.2.</span> <span class="nav-text">处理器调度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程调度"><span class="nav-number">2.2.1.</span> <span class="nav-text">进程调度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作业调度"><span class="nav-number">2.2.2.</span> <span class="nav-text">作业调度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多处理器调度"><span class="nav-number">2.2.3.</span> <span class="nav-text">多处理器调度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程管理"><span class="nav-number">3.</span> <span class="nav-text">进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程简介"><span class="nav-number">3.1.</span> <span class="nav-text">进程简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程切换"><span class="nav-number">3.2.</span> <span class="nav-text">进程切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期"><span class="nav-number">3.3.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程"><span class="nav-number">3.4.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例研究-windows2000-xp的进程与线程："><span class="nav-number">3.5.</span> <span class="nav-text">实例研究 - windows2000/xp的进程与线程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发编程"><span class="nav-number">3.6.</span> <span class="nav-text">并发编程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储管理"><span class="nav-number">4.</span> <span class="nav-text">存储管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">4.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连续存储空间管理"><span class="nav-number">4.2.</span> <span class="nav-text">连续存储空间管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分页式存储管理"><span class="nav-number">4.3.</span> <span class="nav-text">分页式存储管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分段式存储管理"><span class="nav-number">4.4.</span> <span class="nav-text">分段式存储管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟存储管理"><span class="nav-number">4.5.</span> <span class="nav-text">虚拟存储管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设备管理"><span class="nav-number">5.</span> <span class="nav-text">设备管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O-硬件原理"><span class="nav-number">5.1.</span> <span class="nav-text">I/O 硬件原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O-软件原理"><span class="nav-number">5.2.</span> <span class="nav-text">I/O 软件原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件管理"><span class="nav-number">6.</span> <span class="nav-text">文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件简介"><span class="nav-number">6.1.</span> <span class="nav-text">文件简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录简介"><span class="nav-number">6.2.</span> <span class="nav-text">目录简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统安全"><span class="nav-number">7.</span> <span class="nav-text">操作系统安全</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">janino</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"penglei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ErKf3oTlvgx8tsfSYNbUTu2I-gzGzoHsz", "MPPjt8qkE6WgiqYi4QWyy0OE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="-计算机基础," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="janino@Dev" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/blog_logo.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="计算机概论计算机网络：是自印刷术以来，人类在通信方面最大的变革，网络是硬件和软件的组合，负责将数据从一个地方发送到另外一个地方； 网络几个特性：1231，性能：多种衡量方式，例如传输速率、带宽、吞吐量、响应时间等，其也依赖于用户数、传输介质、硬件能力、软件效率等；2，可靠性：数据传输的正确、发送故障频率、数据的恢复等3，安全：包括保护数据、防止非授权访问、顺坏修改等 网络分类：1231，局域网（L">
+<meta name="keywords" content="-计算机基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3,计算机网络">
+<meta property="og:url" content="http://devfqh.com/2015/07/16/3-计算机网络/index.html">
+<meta property="og:site_name" content="janino@Dev">
+<meta property="og:description" content="计算机概论计算机网络：是自印刷术以来，人类在通信方面最大的变革，网络是硬件和软件的组合，负责将数据从一个地方发送到另外一个地方； 网络几个特性：1231，性能：多种衡量方式，例如传输速率、带宽、吞吐量、响应时间等，其也依赖于用户数、传输介质、硬件能力、软件效率等；2，可靠性：数据传输的正确、发送故障频率、数据的恢复等3，安全：包括保护数据、防止非授权访问、顺坏修改等 网络分类：1231，局域网（L">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p69.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p70.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p71.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p72.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p73.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p74.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p75.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p76.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p77.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p78.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p79.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p80.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p81.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p82.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p83.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p84.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p85.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p86.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p87.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p88.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p89.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p90.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p91.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p92.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p93.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p94.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p95.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p96.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p97.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p98.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p99.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p100.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p101.png">
+<meta property="og:updated_time" content="2017-07-26T05:11:17.127Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3,计算机网络">
+<meta name="twitter:description" content="计算机概论计算机网络：是自印刷术以来，人类在通信方面最大的变革，网络是硬件和软件的组合，负责将数据从一个地方发送到另外一个地方； 网络几个特性：1231，性能：多种衡量方式，例如传输速率、带宽、吞吐量、响应时间等，其也依赖于用户数、传输介质、硬件能力、软件效率等；2，可靠性：数据传输的正确、发送故障频率、数据的恢复等3，安全：包括保护数据、防止非授权访问、顺坏修改等 网络分类：1231，局域网（L">
+<meta name="twitter:image" content="http://devfqh.com/images/ComputerBase/CBase_p69.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6370865374186964000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://devfqh.com/2015/07/16/3-计算机网络/"/>
+
+
+
+
+
+  <title>3,计算机网络 | janino@Dev</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?23d814c46207990b1bb576bcdf937df8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=60261186";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1261104557&web_id=1261104557" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">janino@Dev</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">努力，到无能为力！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://devfqh.com/2015/07/16/3-计算机网络/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="janino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog_logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="janino@Dev">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">3,计算机网络</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-07-16T15:11:07+08:00">
+                2015-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/07/16/3-计算机网络/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/16/3-计算机网络/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/07/16/3-计算机网络/" class="leancloud_visitors" data-flag-title="3,计算机网络">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="计算机概论"><a href="#计算机概论" class="headerlink" title="计算机概论"></a>计算机概论</h1><p><strong>计算机网络：</strong>是自印刷术以来，人类在通信方面最大的变革，网络是硬件和软件的组合，负责将数据从一个地方发送到另外一个地方；</p>
+<p><strong>网络几个特性：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1，性能：多种衡量方式，例如传输速率、带宽、吞吐量、响应时间等，其也依赖于用户数、传输介质、硬件能力、软件效率等；</div><div class="line">2，可靠性：数据传输的正确、发送故障频率、数据的恢复等</div><div class="line">3，安全：包括保护数据、防止非授权访问、顺坏修改等</div></pre></td></tr></table></figure></p>
+<p><strong>网络分类：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1，局域网（LAN）：通常是私有的，例如学校、宿舍、办公室等</div><div class="line">2，广域网（WAN）：提供长距离的数据、图像、音频、视频信息的传输，从地理位置上可能包括、国家、大洲、全球等</div><div class="line">3，城域网（MAN）：介于LAN和WAN之间，通常是提供一座城市的服务</div></pre></td></tr></table></figure></p>
+<p><strong>互联网：</strong>如今很少见到独立的网络，当多个网络连接在一起时，它们就组成了互联网<br><strong>因特网：</strong>网络将许多计算机连接在一起，而许多网络再连接到一起，构成了因特网，最为庞大，是成千上万、上百个国家所组成，不断的加入，因此无法进行具体的统计；</p>
+<p><strong>因特网的标准化工作：</strong>通常以RFC文档为标准，有三种RFC（建议标准、草案标准、因特网标准）</p>
+<p><strong>因特网的组成：</strong>其内部虽然负责，但从工作方式上，可大致分为两大块<br><strong>1，边缘部分：</strong>由连接在因特网上的主机组成，即用户使用的部分，用于进行通信、传送数据、音频、视频、资源共享等<br><strong>2，核心部分：</strong>由大量网络和连接这些网络的路由器组成，是为边缘部分的主机提供服务的；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p69.png" alt="">          </p>
+<p><strong>主机：</strong>为用户进行信息处理，例如传递数据<br><strong>路由器：</strong>负责转发分组，当收到一个分组时，会存储下来，然后将分组转发到下一个路由器，直到最终的目标；</p>
+<p>网络通信通常是指，在主机A上的某个程序和运行在主机B上的某个程序进行通信，通常有两种方式<br><strong>1，客户/服务器模式：</strong>客户端作为请求方，而服务则负责处理客户端请求，提供服务<br><strong>2，对等连接：</strong>即p2p，两个主机都运行即可进行通信，没有客户端和服务器之分</p>
+<p><strong>ip地址：</strong>用于表示网络上的设备，不易记住；通常使用主机名；<br><strong>端口：</strong>用于表示不同的进程；有效端口0~65535；其中0和1024是系统使用和保留端口</p>
+<p><strong>对于下一代因特网的发展：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1，下一代网际协议IPV6</div><div class="line">2，多协议标记交换MPLS等...</div></pre></td></tr></table></figure></p>
+<h1 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h1><p><strong>OSI（open  systems Interconnection）：</strong>即国际标准化组织ISO为了统一全世界的网络互联，所提出的网络互联标准，是法律意义上的国际标准；</p>
+<p>但到了90年代，虽然OSI的标准已经制定出来，但由于因特网的发展迅速，基本无任何厂家生产出符合OSI标准的商业产品，因此OSI标准在市场方面也就失败了，即使覆盖全世界的因特网也未使用此标准；</p>
+<p><strong>OSI标准其失败原因主要在于：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1，OSI转接们缺乏实际的经验，且制定周期太长，因而导致OSI生成的设备没能及时进入市场</div><div class="line">2，OSI的层次划分不合理，有些功能在多个层次中重复出现</div><div class="line">3，OSI协议实现过于复杂，且运行效率低下</div></pre></td></tr></table></figure>
+<p><strong>TCP/IP：</strong>Transmission Control Protocol/Internet Protocol的简写，中译名为传输控制协议/因特网协议，定义了网络互连的标准，是目前应用最广泛的网络协议，其将网络互联分为四层/五层，每一层都由下层所提供的协议来完成自己的需求；</p>
+<p><strong>OSI、TCP/IP层次结构简介：</strong><br><code>1，OSI的七层协议结构概念清楚，理论完整，但其既复杂又不实用；</code><br><code>2，TCP/IP则不同，早期分为四层的体系结构，但由于其网络接口层并没有什么具体内容，因此结合了OSI和TCP/IP的优点，采取一种具有五层协议的体系结构；</code></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p70.png" alt=""></p>
+<p><strong>TCP/IP五层体系结构简介：</strong>后续的介绍，均以TCP/IP五层体系为准<br><strong>应用层：</strong>体系结构的最顶层，用户与网络的接口，直接为用户的应用程序提供服务，如各种终端的应用，例如文件传输协议(ftp)、虚拟终端协议(telnet)、超文本连接协议(http)</p>
+<p><strong>传输层：</strong>负责为两个主机中进程之间的通信提供服务，由于一个主机可同时运行多个进程，因此传输层还具有复用和分发的功能，复用就是多个进程可同时使用传输层提供的服务；分发就是传输层将收到的信息分别交付给上级应用层的进程，主要传输协议有TCP、UDP</p>
+<p><strong>网络层：</strong>tcp/ip协议的核心，主要将传输层产生的报文和数据分组，并完成数据包从源主机到目标主机的发送，使用IP协议来区分不同主机，其使用了多组协议来完成，例如ICMP（因特网控制消息协议）可报告错误信息给计算机、ARP(地址解析协议）、RARP(地址反解析协议）；</p>
+<p>路由的选择，即指定确定数据包的部分或全部路径，因为因特网是（LAN、WAN、MAN）的集合，因此从源到目的地的数据包发送可能是几个发送的组合：源-&gt;路由器、路由-&gt;多个路由器、路由器-&gt;目的地的发送；</p>
+<p><strong>数据链路层：</strong>两个主机之间的数据传输，总是在一段一段的链路上进行的，也就是说两个相邻节点之间（主机与路由器、或路由器与路由器之间），传输数据时点对点的，因此就需要专门的链路层，在两个相邻节点传送数据时，将网络层交下来的IP数据报组装成帧，在两个相邻节点上进行透明传送；<br><strong>物理层：</strong>主要定义物理设备的标准，如网线、光纤接口、电压、线路。传输数据单位是bit（比特），也就是0和1；</p>
+<p><strong>每层封装的数据单元叫法不同：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">应用层：称为数据（data）</div><div class="line">传输层：数据段（segment）</div><div class="line">网络层：数据包（packet）</div><div class="line">链路层：数据帧（frame）</div><div class="line">物理层：比特流（bits），即0和1</div></pre></td></tr></table></figure></p>
+<p><strong>对于OSI中的表示层、会话层：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">表示层：处理数据编码的表示问题，以保证数据格式可被应用层所识别，数据压缩和加密都是其转换功能之一，即主要对接收的数据进行解释，转换成可识别的东西；如图片、mp3等</div><div class="line">会话层：通过传输端口建立数据传输通道</div></pre></td></tr></table></figure></p>
+<h1 id="TCP-IP-–-物理层"><a href="#TCP-IP-–-物理层" class="headerlink" title="TCP/IP – 物理层"></a>TCP/IP – 物理层</h1><p><strong>简介：</strong>TCP/IP最底层的协议，主要是定义物理设备的标准（网线、接口、线路、电路等），及传输信号的一些特性，从而统一计算机网络硬件设备和传输媒体的标准，其传输数据单位是bit（比特），也就是0和1；</p>
+<h2 id="传输媒体"><a href="#传输媒体" class="headerlink" title="传输媒体"></a>传输媒体</h2><p><strong>简介：</strong>物理层的传输媒介分为两类，导向传输媒体和非导向传输媒体；<br><strong>1，导向传输媒体：</strong>指在传输过程中，电磁波沿着固定媒体（铜线或光钎）传播<br><strong><em>双绞线：</em></strong>最古老也是最常用的传输媒介，最为便宜、主要是使用两根绝缘的铜导线并排放在一起，例如常见的电话系统</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p71.png" alt=""></p>
+<p><strong>2，同轴电缆：</strong>由内导体铜质芯线、绝缘层、网状编制的外导体屏蔽层以及保护塑料外层所组成，<br><img src="http://devfqh.com/images/ComputerBase/CBase_p72.png" alt=""></p>
+<p><strong>3，光缆：</strong>即光钎通信技术，随着计算机的发展，现已大量采用光钎作为传输媒体，其优点主要在于技术先进、快速、便宜等</p>
+<p><strong>2，非导向传输媒体：</strong>在某些场合，例如高山、岛屿中，无法大量的开设电缆，因此就需要无线传输来完成，例如无线电波、卫星传输</p>
+<h2 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h2><p><strong>简介：</strong>通信技术中最基本的概念，使得多个主机进行通信时，可共享一个信道，主要操作是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1，发送端使用一个复用器，使得多个主机可共享一条信道；</div><div class="line">2，接收端再使用分发器，将合起来传输的信息分别送到对于的目标中；</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p73.png" alt=""> </p>
+<p><strong>常见的复用方式有：</strong>频分复用、时分复用、波分复用、统计分时复用，较为复杂不再详细讨论；</p>
+<h2 id="宽带接入技术"><a href="#宽带接入技术" class="headerlink" title="宽带接入技术"></a>宽带接入技术</h2><p><strong>1，XDSL技术：</strong>通过数字技术对现有的模拟电话用户先进行改造，使其能承载宽带业务，常见的接入类型有</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p74.png" alt="">        </p>
+<p><strong>2，光钎同轴混合往（HFC）：</strong>即光钎，通常是结合在有线电视的基础上进行开发的一种居民宽带接入技术，其主要线路采用了光钎，并采用结点体系结构，可靠性强、速度快，但其需要家庭安装一个用户接口盒，和机顶盒，再连接电视；</p>
+<p><strong>3，FTTx技术：</strong>即光钎到…，此处的x代表不同的意思，也是一种实现宽带居民接入的方式，较为便宜，适用于大量用户组合使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">FTTH（fiber  to  the  home)：从光钎铺设到家庭</div><div class="line">FTTO（fiber  to  the  office）：从光钎到办公室</div><div class="line">FTTD（fiber  to  the  door）：从光钎到门户</div><div class="line">FTTZ（fiber  to  the  zone）：从光钎到小区</div></pre></td></tr></table></figure></p>
+<h1 id="TCP-IP-–-数据链路层"><a href="#TCP-IP-–-数据链路层" class="headerlink" title="TCP/IP – 数据链路层"></a>TCP/IP – 数据链路层</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>数据链路层：</strong>主要作用是将网络层提交过来的数据，打包成帧（frame），再发送到链路上，最终到达目的主机；<br><strong>链路：</strong>即从一个结点到相邻结点的一段物理线路，而中间没有任何其它的交换结点，两台主机之间的通信路径往往要经过很多段链路；</p>
+<p><strong>对于数据链路层使用的信道主要有两种：</strong></p>
+<p><strong>点对点：</strong>通过一对一的点对点通信方式<br><strong>广播信道：</strong>即一对多的广播通信方式，由于连接主机过多，其过程也较于复杂；</p>
+<h2 id="使用点对点信道的数据链路层："><a href="#使用点对点信道的数据链路层：" class="headerlink" title="使用点对点信道的数据链路层："></a>使用点对点信道的数据链路层：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">结点A的数据链路层  ---&gt;  将网络层提交数据封装成帧  ----&gt;  交给物理层</div><div class="line">结点B的物理层  ----&gt; 提交到结点B的数据链路层  -----&gt; 结点B的网络层</div></pre></td></tr></table></figure>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p75.png" alt="">              </p>
+<p><strong>数据链路层的三个基本问题：</strong><br><strong>1，封装成帧：</strong>即将网络层交下来的数据的前后分别添加首部和尾部，即可构成一个帧，物理层通过首部和尾部的标记，即可即系成比特流传输</p>
+<p><strong>2，透明传输：</strong>由于帧的开始和结束标记是使用专门指明的控制字符，可能会与传输数据发送冲突，因此需要处理传输数据的特殊字符，例如在发送端和接受端，分别使用转义字符来填充；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p76.png" alt="">        </p>
+<p><strong>3，错误检测：</strong>即需检测数据帧丢失的问题</p>
+<p><strong>点对点协议PPP（point  to  point  protocol）：</strong>数据链路层协议，以可靠的方式，在链路上的结点与结点之间的数据传输，采用全双工操作，并按照顺序传递数据包，设计的目的是用于通过拨号或专线方式建立点对点连接发送数据，使其成为主机、网桥、路由器之间简单的连接方案</p>
+<p><strong>特点： </strong><br>PPP协议是一种点——点串行通信协议。PPP具有处理错误检测、支持多个协议、允许在连接时刻协商IP地址、允许身份认证等功能，还有其他。PPP提供了3类功能：成帧；链路控制协议LCP；网络控制协议NCP。PPP是面向字符类型的协议。</p>
+<p><strong>PPP协议的帧格式:</strong></p>
+<p>标志字段    地址字段    控制字段    协议    信息部 分    FCS    标志字段</p>
+<p><strong>主要组成：</strong><br><strong>封装：</strong>一种封装多协议数据报的方法。PPP 封装提供了不同网络层协议同时在同一链路传输的多路复用技术。PPP 封装精心设计，能保持对大多数常用硬件的兼容性，克服了SLIP不足之处的一种多用途、点到点协议，它提供的WAN数据链接封装服务类似于LAN所提供的封闭服务。所以，PPP不仅仅提供帧定界，而且提供协议标识和位级完整性检查服务。<br><strong>链路控制协议：</strong>一种扩展链路控制协议，用于建立、配置、测试和管理数据链路连接。<br><strong>网络控制协议：</strong>协商该链路上所传输的数据包格式与类型，建立、配置不同的网络层协议</p>
+<h2 id="使用广播信道的数据链路层："><a href="#使用广播信道的数据链路层：" class="headerlink" title="使用广播信道的数据链路层："></a>使用广播信道的数据链路层：</h2><p>简介：主要用于一对多的通信，常见的局域网就是用了广播信道；<br>以太网：即Xerox公司开发的局域网规范，是当今局域网采用的通信标准；</p>
+<p><strong>局域网的数据链路层：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1，具有广播功能，局域网上的主机可共享连接在局域网上的各种硬件和软件资源；</div><div class="line">2，便于系统的扩展和逐渐演变</div><div class="line">3，可靠性高，具有较高的数据传输率，较低的延迟，较小的误差等</div></pre></td></tr></table></figure></p>
+<p>计算机与外界局域网的连接是通过通信适配器，即一块网卡来实现的；</p>
+<p><strong>常见的传输媒体：</strong>早期使用双绞线，后期采用集线器，及光纤等方式</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p77.png" alt="">      </p>
+<p>在局域网中，硬件地址又称物理地址或MAC地址（因为存储在MAC帧中）；</p>
+<p><strong>扩展的以太网：</strong>以太网之间主机的距离不能太远，因此为了将以太网的范围扩展，需要一些特殊手段<br><strong>在物理层扩展以太网：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1，最早期可通过转发器来实现，但其传输时会使信号削弱</div><div class="line">2，通过光纤和光纤调节器，在主机和集线器之间完成信号</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p78.png" alt=""><br><img src="http://devfqh.com/images/ComputerBase/CBase_p79.png" alt="">                  </p>
+<p><strong>在数据链路层扩展以太网：</strong>通过网桥来实现，其好处在于    </p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p80.png" alt="">    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1，过滤通信量，增大吞吐量：使得个网段成为隔离开的碰撞域</div><div class="line">2，扩大物理范围：也就增大了以太网上连接主机的最大数目</div><div class="line">3，提高可靠性，当网络出现故障时，只会影响到个别网段</div><div class="line">4，可互连不同物理层，不同MAC子层，不同速率（10Mb/s、100Mb/s等）</div></pre></td></tr></table></figure>
+<p><strong>常见的网桥有：</strong>透明网桥、源路由网桥、多网桥接口（以太网交换机）<br><strong>高速以太网：</strong>即速率超过100MB/S的以太网，例如吉比特以太网、10吉比特以太网、100BASE-T以太网等类型；</p>
+<h1 id="TCP-IP-–-网络层"><a href="#TCP-IP-–-网络层" class="headerlink" title="TCP/IP – 网络层"></a>TCP/IP – 网络层</h1><p><strong>网际协议IP：</strong>是TCP/IP体系中两个最重要的协议之一，也是最重要的因特网标准协议之一，与其配套的还有四个协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">地址解析协议ARP（Address  Resolution Protocol）</div><div class="line">逆地址解析协议RARP（Reverse Address Resolution Protocol）</div><div class="line">网际控制报文协议ICMP（Internet Control  Message Protocol）</div><div class="line">网际组管理协议IGMP（Internet Group Management Protocol）</div></pre></td></tr></table></figure>
+<p><strong>网际协议IP及其配套协议：</strong><br><img src="http://devfqh.com/images/ComputerBase/CBase_p81.png" alt=""></p>
+<p><strong>在网络互联的过程中，通常会使用一些中间设备，例如：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1，物理层 ----&gt;  转发器</div><div class="line">2，数据链路层  ---&gt; 网桥或桥接器</div><div class="line">3，网络层  ----&gt;  路由器</div><div class="line">4，网络层以上使用的中间设备叫做网关（gateway）</div></pre></td></tr></table></figure></p>
+<p><strong>IP地址：</strong>用于为因特网上的每一台主机（或路由器）分配一个唯一的32标识符。每个IP地址都由网络号和主机号两部分组成； </p>
+<p><strong>IP地址和硬件地址的不同：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">硬件地址：是物理层和数据链路层使用的地址</div><div class="line">IP地址：是网络层和以上各层使用的地址，是逻辑地址，是通过软件实现的；</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p82.png" alt="">         </p>
+<p>如图三个局域网，使用两个路由器R1、R2互连，如果主机H要和主机H2进行通信；则传输的过程为H1 –&gt; R1 —&gt; R2 —&gt; H2；需通过两次转发</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p83.png" alt=""></p>
+<p><strong>ARP（地址解析协议）：</strong>根据IP地址，找出其对于的物理地址，在主机内部会有一个IP地址和物理地址的映射表；<br><strong>RARP（逆地址解析协议）：</strong>即根据物理地址，找出其对于的IP地址</p>
+<p><strong>使用IP地址通信，而不使用硬件地址解析通信的原因：</strong>由于全世界存在着各式各样的网络，其使用不同的硬件地址，如果要使这些异构网络能够互相通信，就必须使用非常复杂的硬件地址转换工作，如果由用户或用户主机来完成这项工作几乎是不可能的，因此就通过统一的IP地址来解决此复杂的问题；</p>
+<p><strong>IP数据报的格式：</strong>一个完整的IP数据报由两部分组成，首部和数据部分，主要字段如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">版本：占4位，即IP协议的版本，通信双方使用的IP协议版本必须一致</div><div class="line">首部长度：占4位，可表示的最大十进制数是15</div><div class="line">区分服务：占8位，用于获取更好的服务</div><div class="line">总长度：指首部和数据部分的长度，单位为字节‘</div><div class="line">标识、 标志、片偏移：</div><div class="line">生存空间：表明数据包在网络中的寿命</div><div class="line">协议：指出此数据报携带的数据时采用何种协议，以便使目的地的IP层知道，应将数据部分上交到那个处理过程</div><div class="line">首部检验和：只检验书包的首部，不包含数据部分</div><div class="line">源地址、目标地址</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p84.png" alt=""></p>
+<p><strong>分组转发：</strong>即两台不同的主机，在通信的过程中肯定会经过若干个路由器，那么就需要在这些路由器进行对不同的网络进行分组转发；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p85.png" alt=""></p>
+<p><strong>划分子网：</strong>为提高IP地址空间利用率，减少路由表消耗，提高路由器性能，可将所属的物理网络分为若干个子网，其IP地址格式（网络号，子网号，主机号）<br>凡是从其它网络发送给本单位某个主机的IP数据报，仍然是根据IP数据报的目的网络号找到连接在本单位网络的路由器，但此路由器在收到IP数据报后，再按目的地网络号和子网号找到目的子网，再把IP数据报交付给目的主机；</p>
+<p><strong>子网掩网：</strong>是一个网络或一个子网的重要属性，通过其来找到目标子网主机；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p86.png" alt="">    </p>
+<p><strong>使用子网时分组的转发：</strong>则包含了三部分，目的网络弟子、子网掩码、下一跳地址</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p87.png" alt="">     </p>
+<p><strong>网络控制报文协议ICMP：</strong>为了更有效的转发IP数据报和提高交付成功的几率，在网际层使用了ICMP协议，主要用于ICM P差错报告和ICMP询问报文；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p88.png" alt="">        </p>
+<h1 id="TCP-IP-–-传输层"><a href="#TCP-IP-–-传输层" class="headerlink" title="TCP/IP – 传输层"></a>TCP/IP – 传输层</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>传输层向上面的应用层提供通信服务，属于面向通信部分的最高层，也是用户功能中的最低层；</p>
+<p><strong>IP协议：</strong>提供主机与主机之间的通信，只能将分组数据传输到目的主机，但是无法交付到指定的进程中<br><strong>传输层协议：</strong>提供主机中进程与进程之间，端到端的通信，还需进行差错检查、拥塞控制、流量控制、复用、分用等功能；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p89.png" alt=""><br><img src="http://devfqh.com/images/ComputerBase/CBase_p90.png" alt=""> </p>
+<p><strong>传输层的端口：</strong>用于区分主机上的应用程序，可分为服务端、客户端两类<br><strong>1，服务器端口：</strong>有分为两类（系统端口号和登记端口号）<br><code>1.1 系统端口号，已经由系统指派给了TCP/IP的一些重要程序，例如</code><br><img src="http://devfqh.com/images/ComputerBase/CBase_p91.png" alt=""><br><code>1.2  登记端口号：数值为1024 ~ 49151，没有熟知端口号的应用程序使用</code><br><strong>2，客户端端口：</strong>数值为49152~65535，是客户端连接时，进程自动选择使用的；</p>
+<h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><p><strong>UDP（User Datagram Protocol）用户数据报协议：</strong>主要在IP协议的数据部分上，增加了复用、分用、差错检查的功能，主要特点：</p>
+<p><strong>1，面向无连接、速度快：</strong>即发送数据前不需要建立连接，结束时也不需要释放连接<br><strong>2，不可靠：</strong>UDP尽最大努力交付，但不保证一定交付到对应主机的进程中<br><strong>3，面向报文（数据包）：</strong>数据包过长则会造成IP层的分片传输，造成丢包情况；  过短，则会造成IP首部大于数据包部分，也会影响IP层的效率；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">发送方：应用层提交下的数据，UDP直接添加首部后，交给IP层； </div><div class="line">接收方：IP层直接去除首部后，交给上层传输层，再到应用层的进程</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p92.png" alt=""></p>
+<p><strong>4，没有拥塞控制：</strong>因此网络的阻塞不会造成源主机的发送速度降低，适用于处理视频会议、图像、音乐等实时传输的场合，因为即使传输过程中丢失了部分数据，用户也不会察觉图像、音乐中瞬小的微差错误；</p>
+<p><strong>UDP首部格式：</strong>分为首部和数据两部分，首部组成主要由四个字段组成；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1，源端口：主要在对方回信时使用，不需要可为0</div><div class="line">2，目的端口：即到达终点目的地进程的端口</div><div class="line">3，长度：数据报的总长度</div><div class="line">4，校验和：检测UDP在用户数据报的传输中是否有错误，有错就丢弃</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p93.png" alt=""></p>
+<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p><strong>TCP（Transmission Control Protocol）传输控制协议：</strong>较为复杂，其主要特点如下<br><strong>1，面向连接、速度略低：</strong>即通信过程中，需要建立连接、确认连接、释放连接；（类似于打电话，需要拨号、进行通话、之后再挂断）<br><strong>2，可靠：</strong>TCP提供可靠交付，也就是通过TCP传递的数据，无差错、不丢失、不重复、并按序到达目标主机的进程中；<br><strong>3，面向字节流：</strong>TCP将应用程序提交下的数据看做是一连串的字节流，接收方接收字节流后，需将其还原成有意义的应用层数据</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p94.png" alt=""></p>
+<p><strong>4，采用全双工通信：</strong>即允许通信的双方的进程，在任何使用都能进行发送、接收数据，内部有缓存机制；</p>
+<p><strong>TCP的连接实现：</strong>通常通过Socket接口（通信套接字）来实现，每个Socket都包含了一个IP地址和端口，用于完成主机中进程与进程的通信；<br><strong>Socket：</strong>作为传输层的TCP通信实现接口标准，通常指在网络上的两个程序通过一个双向的通信连接实现数据的交换，连接的一端就称为一个socket，包含了IP和端口；</p>
+<p><strong>可靠传输的工作原理：</strong>主要是发送端和接收端每次通信时，通过三次握手，使其同步，由来保证数据的可靠传输<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1，客户端向服务端发送syn（syn = j）数据包后，等待服务器处理</div><div class="line">2，服务器收到syn数据包后，进行确认（ack = j + 1），并发送响应数据（syn = k）给客户端</div><div class="line">3，客户端收到服务器的响应数据后，向服务器发送确认包（ack = k + 1）；此时通信结束；</div></pre></td></tr></table></figure></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p95.png" alt=""></p>
+<p><strong>超时重传：</strong>即当传输的数据包超时，会进行重新传递，需再次建立连接、握手；</p>
+<p><strong>TCP报文段的首部格式：</strong>同样分为首部和数据两部分，虽然TCP面向字节流，但其传输的数据单位却是数据段；其首部格式如下</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p96.png" alt=""></p>
+<pre><code>1，源端口和目的端口：占2个字节，分别代表连接的两个进程
+2，序号：即报文数据段的序号
+3，确认号：占4字节，代表需要收到对方下一个报文段的第一个数据字节序
+4，数据偏移：占4位，指出TCP报文段的数据起始处，距离TCP报文段的起时处有多远
+5，保留：占6位，日后保留用
+6，紧急（URG）：当URG = 1时，代表紧急指针字段有效，其报告系统此报文段中有紧急数据，应尽快传送，提高优先级，而不是按原先的排队顺序传送
+7，确认（ACK）：当ACK = 1，确认字段才有效； ACK = 0，则无效；TCP规定，在建立连接后，所有传送的报文段都必须将ACK置1
+8，推送：当两个进程进行交互式的通信时，有时候在一端的应用进程希望在键入一个命令后就能立即得到对方的响应，这个时候TCP就可以使用推送的方式创建一个报文段发送出去；
+9，复位（RST）：当RST = 1时候，表示TCP连接中出现严重错误（系统奔溃、内存溢出、断电等），必须释放连接，然后再重新建立传输连接；
+10，同步（SYN）：在建立连接时，用于同步序号，以此来保证可靠传输，当SYN = 1，ACK = 0时，表明这是一个请求报文段；
+11,，终止（FIN）：用于释放一个连接，当FIN = 1时，说明此报文段的发送端的数据已发送完毕，并要求释放运输里阿杰
+12，窗口：占2个字节，指的是发送本报文段一方的接收窗口
+13，校验和：
+14，紧急指针：占2字节，支出本报文段中紧急数据所占的字节
+15，选项：
+</code></pre><p><strong>流量控制：</strong>即控制传输数据的速率不要太快，要让接收方来得及接收；<br><strong>拥塞控制：</strong>传输层向网络传输数据时，下层网络可能会发生堵塞，这可能会导致丢失数据包，如果传输层检测到网络上有拥塞，就会暂缓发送，或丢弃数据包<br><strong>差错控制：</strong>在消息传输过程中，可能会被损坏、丢失、重复或乱序，为了保证数据被目的传输层正确接收，因此需要检查数据包是否正确；</p>
+<h1 id="TCP-IP-–-应用层"><a href="#TCP-IP-–-应用层" class="headerlink" title="TCP/IP – 应用层"></a>TCP/IP – 应用层</h1><p><strong>应用层：</strong>TCP/IP的最顶层，是用户和网络的接口，主要是面向用户的终端的应用，其每一个协议，都是为了解决用户的某一类问题，而问题通常是由位与不同主机的多个应用进程之间的通信来完成的，应用层的许多协议都是基于客户/服务器模式；</p>
+<p><strong>域名解析系统（DNS）：</strong>主要用于将主机名称转换成对应的IP地址，域名的组成如下</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p97.png" alt="">   </p>
+<p><strong>FTP（File  Transfer  Protocol）：</strong>文件传输协议，基于TCP可靠协议，主要用于传输文件，允许客户指明文件的类型和格式，并允许文件具有存取权限，协议，直到1995年，www的通信量才首次超过FTP；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p98.png" alt="">  </p>
+<p><strong>NFS：</strong>与FTP不同，其允许应用远程打开一个文件，并运行其进行读写，这样既可使得用户只复制大文件中的一小部分</p>
+<p><strong>TELNET（远程终端协议）：</strong>允许用户进行远程登录到另外一台主机上</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p99.png" alt="">     </p>
+<p><strong>imap、smtp、pop：</strong>邮件发送、接收协议等</p>
+<p><strong>mime：</strong>多用途因特网邮件扩充协议，严格来说不是一个电子协议，其主要定义了各种文件类型在互联网上，应该用何种方式去打开；</p>
+<p><strong>万维网（www）：</strong>以客户/服务器的方式存在，将信息、资源、数据分布在整个因特网上，并通过URL进行标识访问；</p>
+<p><strong>http：</strong>超文本传输协议，主要用于万维网中，定义了客户端和web服务器交互的数据格式，主要用于存取web服务器中的数据，以纯文本方式传输文本、音频、视频等信息，以请求 -&gt; 响应的方式</p>
+<h1 id="因特网上的音频-视频服务"><a href="#因特网上的音频-视频服务" class="headerlink" title="因特网上的音频/视频服务"></a>因特网上的音频/视频服务</h1><p><strong>多媒体信息在互联网上的传输：</strong>由于含有音频、视频、图像的文件通常较为庞大，因此需要使用特殊的方式进行处理，传输；</p>
+<p><strong>目前因特网提供的音频/视频服务可大致分为三类：</strong><br><strong>1，流式存储音频/视频：</strong>即需要将已压缩好的多媒体文件存放在服务器上，用户需下载完毕后，再进行播放；<br><strong>2，流式实况音频/视频：</strong>适用于无线电台、实况直播，其方式是边录制边发送，较为复杂，且成本高，因此不够普及<br><strong>3，交互式音频/视频（流媒体）：</strong>最流行的方式，即通过边下载边播放的方式来提供多媒体服务；</p>
+<p><strong>流媒体服务器：</strong>通常会基于UDP来传输，因为对于音频、视频等多媒体资源而言，强调的是传输的速度，即使出现了微小的数据丢失，造成音频不准、或视频部分帧不清晰，用户也不会察觉这些细节；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p100.png" alt=""> </p>
+<p><strong>实时传输协议（RTP）：</strong>为实时应用提供端到端的运输，但不提供任何服务质量的保障，发送的多媒体数据块在经过压缩编码处理后，先送给RTP封装成RTP分组（报文），再传入传输层的UDO用户数据报，然后再向下传递给下级的IP层；</p>
+<p><strong>实时传输控制协议（RTCP）：</strong>与RTP配合使用，主要负责服务质量的监控、反馈、媒体间的同步，以及多播组中成员的标志等等…</p>
+<h1 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h1><p><strong>计算机网络面临的主要安全威胁：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1，截获：攻击者从网络上窃听他人的通信内容</div><div class="line">2，中断：攻击者由于中断他人在网络上的通信</div><div class="line">3，篡改：攻击者故意篡改用户在网络上传递的报文</div><div class="line">4，伪造：攻击者伪造用户信息，在网络上传输</div></pre></td></tr></table></figure></p>
+<p><strong>可分为两大类，被动攻击（截获）和主动攻击（中断、篡改、伪造）：</strong></p>
+<p><strong>因特网使用的安全协议：</strong>不同层使用的安全协议不同，且针对于不同场景使用的安全协议也不同；</p>
+<p><strong>基本的加解密算法：</strong>虽然加密算法很多，但最基本的有两种，其它算法都是由此演变而来的；<br><strong>1，易位法：</strong>通过重新排列明文中各个字符的位置来形成密文，易位时，先设计一个密钥，对它对明文进行易位，并形成密文；解密时工具密钥再排序</p>
+<p><strong>2，置换法：</strong>将明文中的字母按英文字母顺序，往后移动位生成新的替代字母，例如house就变成了hrxvh</p>
+<p><strong>对称加密：</strong>即加密和解密使用的是同一个密钥（key），例如常见的DES，但其缺点在于需要传递密钥给客户端，此过程可能会被拦截，那么加密和解密就同样的密钥，则出错；</p>
+<p><strong>非对称加密：</strong>即提供了两个密钥（key），一个公钥（public key），一个私有钥（private key），私钥不能外泄，而公钥可以外泄；例如向银行请求一个公钥，通过公钥加密后，那么只有私钥的持有人，银行才能对消息进行解密；与对称加密不同的时，银行不需要将私要通过网络发出去，因此安全性大大提高，目前非对称加密算法是RAS算法；<br>其它方式还有审计、签名生成等方式；</p>
+<p><strong>防火墙：</strong>一种特殊的路由器，安装在一个网点和网络的其余部分，目的是为了访问控制策略，通常在防火墙内的网络称为可信网络，防火墙外面的网络称为”不可信网络“</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p101.png" alt="">             </p>
+<p><strong>防火墙技术可大致分为两类：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1，网络级防火墙：主要用来防止整个网络出现外来非法的入侵，</div><div class="line">2，应用级防火墙：从应用程序来进行访问控制；</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://avatars3.githubusercontent.com/u/13724193?v=4&u=badffa5b147f5babec97aa66ae75e1e3e1d50592&s=400" alt="janino WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://avatars3.githubusercontent.com/u/13724193?v=4&u=badffa5b147f5babec97aa66ae75e1e3e1d50592&s=400" alt="janino Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机基础/" rel="tag"># -计算机基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/13/2-操作系统原理/" rel="next" title="2,操作系统原理">
+                <i class="fa fa-chevron-left"></i> 2,操作系统原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/24/4-编译原理/" rel="prev" title="4,编译原理">
+                4,编译原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/07/16/3-计算机网络/"
+           data-title="3,计算机网络" data-url="http://devfqh.com/2015/07/16/3-计算机网络/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/blog_logo.png"
+               alt="janino" />
+          <p class="site-author-name" itemprop="name">janino</p>
+           
+              <p class="site-description motion-element" itemprop="description">努力，到无能为力！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/janino-fqh/" target="_blank" title="博客园">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  博客园
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/janino" target="_blank" title="github地址">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github地址
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/janino-fqh/" title="博客园" target="_blank">博客园</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/janino" title="github地址" target="_blank">github地址</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机概论"><span class="nav-number">1.</span> <span class="nav-text">计算机概论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机网络体系结构"><span class="nav-number">2.</span> <span class="nav-text">计算机网络体系结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-IP-–-物理层"><span class="nav-number">3.</span> <span class="nav-text">TCP/IP – 物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#传输媒体"><span class="nav-number">3.1.</span> <span class="nav-text">传输媒体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信道复用技术"><span class="nav-number">3.2.</span> <span class="nav-text">信道复用技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宽带接入技术"><span class="nav-number">3.3.</span> <span class="nav-text">宽带接入技术</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-IP-–-数据链路层"><span class="nav-number">4.</span> <span class="nav-text">TCP/IP – 数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">4.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用点对点信道的数据链路层："><span class="nav-number">4.2.</span> <span class="nav-text">使用点对点信道的数据链路层：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用广播信道的数据链路层："><span class="nav-number">4.3.</span> <span class="nav-text">使用广播信道的数据链路层：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-IP-–-网络层"><span class="nav-number">5.</span> <span class="nav-text">TCP/IP – 网络层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-IP-–-传输层"><span class="nav-number">6.</span> <span class="nav-text">TCP/IP – 传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-1"><span class="nav-number">6.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP"><span class="nav-number">6.2.</span> <span class="nav-text">UDP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP"><span class="nav-number">6.3.</span> <span class="nav-text">TCP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-IP-–-应用层"><span class="nav-number">7.</span> <span class="nav-text">TCP/IP – 应用层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#因特网上的音频-视频服务"><span class="nav-number">8.</span> <span class="nav-text">因特网上的音频/视频服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络安全"><span class="nav-number">9.</span> <span class="nav-text">网络安全</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">janino</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"penglei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ErKf3oTlvgx8tsfSYNbUTu2I-gzGzoHsz", "MPPjt8qkE6WgiqYi4QWyy0OE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

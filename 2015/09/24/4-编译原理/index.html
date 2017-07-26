@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="-计算机基础," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="janino@Dev" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/blog_logo.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="备注：程序设计语言的编译时非常复杂的，对于应用层开发人员仅作略微了解即可，深入完全无意义。。即使是整个中国，也没有人能研发出一款真正的程序设计语言编译器； 程序设计语言分类： 1，编译型：将整个源程序编译成机器语言，即二进制，计算机可直接运行，优点是速度快，缺点是跨平台性略差；（例如c/c++，每次编译成可执行文件后，如果需要跨平台，需要再次通过链接变成相应平台的可执行文件） 2，解释型：先将源程">
+<meta name="keywords" content="-计算机基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4,编译原理">
+<meta property="og:url" content="http://devfqh.com/2015/09/24/4-编译原理/index.html">
+<meta property="og:site_name" content="janino@Dev">
+<meta property="og:description" content="备注：程序设计语言的编译时非常复杂的，对于应用层开发人员仅作略微了解即可，深入完全无意义。。即使是整个中国，也没有人能研发出一款真正的程序设计语言编译器； 程序设计语言分类： 1，编译型：将整个源程序编译成机器语言，即二进制，计算机可直接运行，优点是速度快，缺点是跨平台性略差；（例如c/c++，每次编译成可执行文件后，如果需要跨平台，需要再次通过链接变成相应平台的可执行文件） 2，解释型：先将源程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p102.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p103.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p104.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p105.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p106.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p107.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p108.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p109.png">
+<meta property="og:image" content="http://devfqh.com/images/ComputerBase/CBase_p110.png">
+<meta property="og:updated_time" content="2017-07-26T05:32:01.483Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4,编译原理">
+<meta name="twitter:description" content="备注：程序设计语言的编译时非常复杂的，对于应用层开发人员仅作略微了解即可，深入完全无意义。。即使是整个中国，也没有人能研发出一款真正的程序设计语言编译器； 程序设计语言分类： 1，编译型：将整个源程序编译成机器语言，即二进制，计算机可直接运行，优点是速度快，缺点是跨平台性略差；（例如c/c++，每次编译成可执行文件后，如果需要跨平台，需要再次通过链接变成相应平台的可执行文件） 2，解释型：先将源程">
+<meta name="twitter:image" content="http://devfqh.com/images/ComputerBase/CBase_p102.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6370865374186964000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://devfqh.com/2015/09/24/4-编译原理/"/>
+
+
+
+
+
+  <title>4,编译原理 | janino@Dev</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?23d814c46207990b1bb576bcdf937df8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=60261186";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1261104557&web_id=1261104557" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">janino@Dev</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">努力，到无能为力！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://devfqh.com/2015/09/24/4-编译原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="janino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog_logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="janino@Dev">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">4,编译原理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-24T15:11:20+08:00">
+                2015-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/09/24/4-编译原理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/24/4-编译原理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/09/24/4-编译原理/" class="leancloud_visitors" data-flag-title="4,编译原理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong><em>备注：</em></strong>程序设计语言的编译时非常复杂的，对于应用层开发人员仅作略微了解即可，深入完全无意义。。即使是整个中国，也没有人能研发出一款真正的程序设计语言编译器；</p>
+<p><strong>程序设计语言分类：</strong></p>
+<p><strong>1，编译型：</strong>将整个源程序编译成机器语言，即二进制，计算机可直接运行，优点是速度快，缺点是跨平台性略差；<br><code>（例如c/c++，每次编译成可执行文件后，如果需要跨平台，需要再次通过链接变成相应平台的可执行文件）</code></p>
+<p><strong>2，解释型：</strong>先将源程序编译编译成中间代码，运行时才一行一行解释成机器代码并执行，优点是跨平台性好，缺点速度慢，每次运行都要进行解释<br>      （例如java编译后为.class字节码，通过JVM运行时才翻译成机器代码）；</p>
+<p><strong>编译器：</strong>即将高级语言翻译成计算机所能识别的机器语言指令，本质也是一个程序；</p>
+<p><strong>编译器结构：</strong></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p102.png" alt="">  </p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p103.png" alt="">               </p>
+<p><strong>示例：</strong>position = initial + rate * 60；语句的编译过程</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p104.png" alt=""></p>
+<p><strong>1，词法分析器：</strong>编译的第一个阶段，主要对源程序的字符串进行扫描和分解，识别成符号流</p>
+<p><strong>扫描阶段：</strong>负责将一些不需要生成词法单元的简单处理，例如删除注释、将多个连续空白字符压缩成一个<br><strong>词法分析阶段：</strong>较为复杂，是将扫描阶段的输出生成词法单元，包括</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p105.png" alt=""></p>
+<p><strong>词法单元：</strong>由一个词法单元名和一个可选的属性组成</p>
+<p><strong>模式：</strong>描述了一个词法单元的词素可能具有的形式，当词法单元是一个关键字时，它的模式就是组成这个关键字的字符序列，对于标识符合其它词法单元，模式是一个更加复杂的结构，其可与多个符号串进行匹配；</p>
+<p><strong>词素：</strong>是源程序中的一个字符序列，其与某个词法单元的模式匹配，并被词法分析器识别为改词法单元的一个实例；</p>
+<p><strong>词法单元的属性：</strong>可为任意类型的结构化数据，通过词法单元id与其关联；</p>
+<p><code>position = initial + rate * 60语句的词法分析流程如下；</code></p>
+<p><strong>position：</strong>一个词素（即变量），会被映射成词法单元<id，1>，其中id是表示标示符的抽象符号，而1指向符号表中position对应的条目，一个标识符对应的符号表条目存放该标识符有关的信息，例如名称和类型</id，1></p>
+<p><strong>=：</strong>赋值符号，其不是一个变量，因此没有属性值，直接忽略即可</p>
+<p><strong>initial：</strong>同为词素（即变量），会被映射成词法单元<id，2>，2是指向initial对应符号表条目</id，2></p>
+<p><strong>+：</strong>非变量，直接被映射成词法单元&lt;+&gt;</p>
+<p><strong>rate：</strong>同为词素（即变量），会被映射成词法单元<id，3>，2是指向rate对应符号表条目</id，3></p>
+<p><strong>*：</strong>同样非变量，为运算符号，直接被映射成词法单元&lt;*&gt;</p>
+<p><strong>60：</strong>常量，直接映射成词法单元<60>；</60></p>
+<p><strong>经过词法分析后的符号流为：</strong><id，1> &lt;=&gt; <id，2> &lt;+&gt; <id，3> &lt;*&gt; <60></60></id，3></id，2></id，1></p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p106.png" alt=""></p>
+<p><strong>2，语法分析：</strong>根据变成程序语言的语法规则，对词法分析器生成的词法符号流进行分析，变成语法树，树中的每个内部节点表示一个运算步骤，而其子节点表示该运算的结果；</p>
+<p><strong>3，语义分析：</strong>即通过语法树和符号表中的信息来检测源程序是否和编程语言定义的语义一样，同时也收集类型信息，并将这些信息存放在语法树或符号表中，以便有序的中间代码生成过程中使用；其中重要的部分就是进行数据类型检查，且会继续自动类型转换，例如将float转为double等….</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p107.png" alt="">    </p>
+<p><strong>4，中间代码生成：</strong>在经历了词法分析、语法分析后，对于有程序设计语言，可能会构造出多个中间代码形式（主要用于跨平台），例如c会翻译成汇编代码，再通过链接变成不同平台的可执行程序，而java会翻译成.class字节码，再由JVM解释执行；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p108.png" alt="">   </p>
+<p><strong>5，代码优化：</strong>即去除中间代码中多余、性能低的部分，例如60和60.00是一样的，那么通过60来替代60.00，就可消除不必要的浮点数运算（如反码、补码运算），又或者某些变量只被使用一次，那么可替换成更短的指令，例如</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p109.png" alt=""> </p>
+<p><strong>6，目标代码生成：</strong>通过代码生成器，生成目标语言代码，如果目标语言是机器代码（即0和1），那么就必须为程序使用的每个变量选择寄存器和内存位置，例如使用寄存器R1和R2，翻译后的机器代码如下；</p>
+<p><img src="http://devfqh.com/images/ComputerBase/CBase_p110.png" alt="">              </p>
+<p><strong>符号表管理：</strong>即记录源程序中使用的变量名字，并收集变量的有关信息，如数据类型，范围、参数数量、传递方法（如引用传递、值传递等）</p>
+<p><strong>编译器构造工具：</strong>现代的软件开发环境通常都包含了语言编辑器、调试器、版本管理、程序描述器、测试管理等…</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://avatars3.githubusercontent.com/u/13724193?v=4&u=badffa5b147f5babec97aa66ae75e1e3e1d50592&s=400" alt="janino WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://avatars3.githubusercontent.com/u/13724193?v=4&u=badffa5b147f5babec97aa66ae75e1e3e1d50592&s=400" alt="janino Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机基础/" rel="tag"># -计算机基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/16/3-计算机网络/" rel="next" title="3,计算机网络">
+                <i class="fa fa-chevron-left"></i> 3,计算机网络
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/23/C语言基础/" rel="prev" title="C语言基础">
+                C语言基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/09/24/4-编译原理/"
+           data-title="4,编译原理" data-url="http://devfqh.com/2015/09/24/4-编译原理/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/blog_logo.png"
+               alt="janino" />
+          <p class="site-author-name" itemprop="name">janino</p>
+           
+              <p class="site-description motion-element" itemprop="description">努力，到无能为力！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/janino-fqh/" target="_blank" title="博客园">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  博客园
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/janino" target="_blank" title="github地址">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github地址
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/janino-fqh/" title="博客园" target="_blank">博客园</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/janino" title="github地址" target="_blank">github地址</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">janino</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"penglei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ErKf3oTlvgx8tsfSYNbUTu2I-gzGzoHsz", "MPPjt8qkE6WgiqYi4QWyy0OE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
