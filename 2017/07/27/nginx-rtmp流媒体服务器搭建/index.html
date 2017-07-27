@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT, penglei.top ,blog" />
+  <meta name="keywords" content="-直播," />
 
 
 
@@ -95,16 +95,18 @@
 
 
 
-<meta name="description" content="努力，到无能为力！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="janino@Dev">
-<meta property="og:url" content="http://devfqh.com/archives/2015/05/index.html">
+<meta name="description" content="1.先下载安装  nginx 和 nginx-rtmp 编译依赖工具sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev  创建一个工作目录，并切换到工作目录mkdir /usr/janino/nginxcd /usr/janino/nginx  下载 nginx 和 nginx-rtmp源码（wget是一个从网">
+<meta name="keywords" content="-直播">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx-rtmp流媒体服务器搭建">
+<meta property="og:url" content="http://devfqh.com/2017/07/27/nginx-rtmp流媒体服务器搭建/index.html">
 <meta property="og:site_name" content="janino@Dev">
-<meta property="og:description" content="努力，到无能为力！">
+<meta property="og:description" content="1.先下载安装  nginx 和 nginx-rtmp 编译依赖工具sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev  创建一个工作目录，并切换到工作目录mkdir /usr/janino/nginxcd /usr/janino/nginx  下载 nginx 和 nginx-rtmp源码（wget是一个从网">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-27T04:12:59.219Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="janino@Dev">
-<meta name="twitter:description" content="努力，到无能为力！">
+<meta name="twitter:title" content="nginx-rtmp流媒体服务器搭建">
+<meta name="twitter:description" content="1.先下载安装  nginx 和 nginx-rtmp 编译依赖工具sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev  创建一个工作目录，并切换到工作目录mkdir /usr/janino/nginxcd /usr/janino/nginx  下载 nginx 和 nginx-rtmp源码（wget是一个从网">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://devfqh.com/archives/2015/05/"/>
+  <link rel="canonical" href="http://devfqh.com/2017/07/27/nginx-rtmp流媒体服务器搭建/"/>
 
 
 
 
 
-  <title>归档 | janino@Dev</title>
+  <title>nginx-rtmp流媒体服务器搭建 | janino@Dev</title>
   
 
 
@@ -188,7 +190,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -292,73 +294,299 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 7 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://devfqh.com/2017/07/27/nginx-rtmp流媒体服务器搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="janino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog_logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="janino@Dev">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">nginx-rtmp流媒体服务器搭建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-27T12:00:51+08:00">
+                2017-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/直播/" itemprop="url" rel="index">
+                    <span itemprop="name">直播</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/27/nginx-rtmp流媒体服务器搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/27/nginx-rtmp流媒体服务器搭建/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/07/27/nginx-rtmp流媒体服务器搭建/" class="leancloud_visitors" data-flag-title="nginx-rtmp流媒体服务器搭建">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p>1.先下载安装  nginx 和 nginx-rtmp 编译依赖工具<br>sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev</p>
+<ol>
+<li><p>创建一个工作目录，并切换到工作目录<br>mkdir /usr/janino/nginx<br>cd /usr/janino/nginx</p>
+</li>
+<li><p>下载 nginx 和 nginx-rtmp源码（wget是一个从网络上自动下载文件的自由工具）<br>wget <a href="http://nginx.org/download/nginx-1.7.5.tar.gz" target="_blank" rel="external">http://nginx.org/download/nginx-1.7.5.tar.gz</a><br>wget <a href="https://github.com/arut/nginx-rtmp-module/archive/master.zip" target="_blank" rel="external">https://github.com/arut/nginx-rtmp-module/archive/master.zip</a></p>
+</li>
+<li><p>安装unzip工具，解压下载的安装包<br>sudo apt-get install unzip</p>
+</li>
+</ol>
+<p>5.解压 nginx 和 nginx-rtmp安装包<br>tar -zxvf nginx-1.7.5.tar.gz<br>-zxvf分别是四个参数<br>x : 从 tar 包中把文件提取出来<br>z : 表示 tar 包是被 gzip 压缩过的，所以解压时需要用 gunzip 解压<br>v : 显示详细信息<br>f xxx.tar.gz :  指定被处理的文件是 xxx.tar.gz</p>
+<p>unzip master.zip</p>
+<ol>
+<li>切换到 nginx-目录<br>cd nginx-1.7.5</li>
+</ol>
+<p>7.添加 nginx-rtmp 模板编译到 nginx<br>./configure –with-http_ssl_module –add-module=../nginx-rtmp-module-master</p>
+<p>8.编译安装<br>make<br>sudo make install</p>
+<ol>
+<li><p>安装nginx init 脚本<br>sudo wget <a href="https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx" target="_blank" rel="external">https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx</a> -O /etc/init.d/nginx<br>sudo chmod +x /etc/init.d/nginx<br>sudo update-rc.d nginx defaults</p>
+</li>
+<li><p>启动和停止nginx 服务，生成配置文件<br>sudo service nginx start<br>sudo service nginx stop</p>
+</li>
+<li><p>安装 FFmpeg<br>make<br>make install</p>
+</li>
+<li><p>配置 nginx-rtmp 服务器<br>打开 /usr/local/nginx/conf/nginx.conf<br>在末尾添加如下 配置</p>
+</li>
+</ol>
+<p>复制代码<br>rtmp {<br>    server {<br>            listen 1935;<br>            chunk_size 4096;</p>
+<pre><code>        application live {
+                live on;
+                record off;
+                exec ffmpeg -i rtmp://localhost/live/$name -threads 1 -c:v libx264 -profile:v baseline -b:v 350K -s 640x360 -f flv -c:a aac -ac 1 -strict -2 -b:a 56k rtmp://localhost/live360p/$name;
+        }
+        application live360p {
+                live on;
+                record off;
+    }
+}
+</code></pre><p>}<br>复制代码</p>
+<ol>
+<li><p>保存上面配置文件，然后重新启动nginx服务<br>sudo service nginx restart</p>
+</li>
+<li><p>如果你使用了防火墙，请允许端口 tcp 1935</p>
+</li>
+</ol>
+<p>16: 使用 客户端，使用 rtmp协议进行视频实时采集<br>Field 1: rtmp://your.vultr.ip/live/<br>Field 2: stream-key-your-set</p>
+<p>服务器配置测试播放器：<br>将播放器复制到目录：/usr/local/nginx/html/，然后修改播放地址</p>
+<p>用ffplay播放RTMP直播流：<br>ffplay “rtmp://pub1.guoshi.com/live/newcetv1 live=1”</p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://avatars3.githubusercontent.com/u/13724193?v=4&u=badffa5b147f5babec97aa66ae75e1e3e1d50592&s=400" alt="janino WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://avatars3.githubusercontent.com/u/13724193?v=4&u=badffa5b147f5babec97aa66ae75e1e3e1d50592&s=400" alt="janino Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2015/05/13/2-操作系统原理/" itemprop="url">
-              
-                <span itemprop="name">2,操作系统原理</span>
-              
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-05-13T15:10:52+08:00"
-              content="2015-05-13" >
-          05-13
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/直播/" rel="tag"># -直播</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/26/linux基础知识/" rel="next" title="linux基础知识">
+                <i class="fa fa-chevron-left"></i> linux基础知识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
 
-    
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
-  </section>
-
-  
-
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/07/27/nginx-rtmp流媒体服务器搭建/"
+           data-title="nginx-rtmp流媒体服务器搭建" data-url="http://devfqh.com/2017/07/27/nginx-rtmp流媒体服务器搭建/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -615,11 +843,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
