@@ -60,11 +60,49 @@
   </entry>
   
   <entry>
+    <title>ffmpeg编译</title>
+    <link href="http://devfqh.com/2017/07/26/ffmpeg%E7%BC%96%E8%AF%91/"/>
+    <id>http://devfqh.com/2017/07/26/ffmpeg编译/</id>
+    <published>2017-07-26T08:37:07.000Z</published>
+    <updated>2017-07-27T05:39:43.124Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="编译-FFmpeg"><a href="#编译-FFmpeg" class="headerlink" title="编译 FFmpeg"></a>编译 FFmpeg</h2><p>1.阿里云主机 ubuntu 14.04 64位</p>
+<p>2.安装XShell、Xftp</p>
+<p>3.上传NDK、FFmpeg</p>
+<p>4.安装VIM  sudo apt-get install vim-gtk</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">命令模式</div><div class="line">退出，shift + :，输入q!强制退出</div><div class="line">保存退出,shift + z z</div><div class="line">进入编辑模式，i</div><div class="line">进入命令模式，Esc</div><div class="line">命令模式：x删除，dd删除行</div></pre></td></tr></table></figure>
+<p>5.VIM配置<br>进入配置文件：vim /etc/vim/vimrc</p>
+<p>set nu<br>set tabstop<br>set cursorline<br>set ruler</p>
+<ol>
+<li>NDK安装</li>
+</ol>
+<p>目录给权限：chmod 777 -R ndk<br>解压：./android-ndk-r10e-linux-x86_64.bin<br>环境变量配置：<br>命令vim ~/.bashrc<br>添加：<br>export NDKROOT=/usr/ndk/android-ndk-r10e<br>export PATH=$NDKROOT:$PATH<br>更新环境变量：<br>source ~/.bashrc</p>
+<p>7.解压ffmpeg</p>
+<p>unzip ffmpeg-2.6.9.zip</p>
+<p>8.编译ffmpeg</p>
+<p>1）编写shell脚本文件<br>2）给文件权限：chmod 777 android_build.sh<br>dos2unix<br>3）执行 ./android_build.sh</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;编译-FFmpeg&quot;&gt;&lt;a href=&quot;#编译-FFmpeg&quot; class=&quot;headerlink&quot; title=&quot;编译 FFmpeg&quot;&gt;&lt;/a&gt;编译 FFmpeg&lt;/h2&gt;&lt;p&gt;1.阿里云主机 ubuntu 14.04 64位&lt;/p&gt;
+&lt;p&gt;2.安装XShell
+    
+    </summary>
+    
+      <category term="直播" scheme="http://devfqh.com/categories/%E7%9B%B4%E6%92%AD/"/>
+    
+    
+      <category term="-直播" scheme="http://devfqh.com/tags/%E7%9B%B4%E6%92%AD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>linux基础知识</title>
-    <link href="http://devfqh.com/2017/07/26/linux%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    <id>http://devfqh.com/2017/07/26/linux基础知识/</id>
-    <published>2017-07-26T12:11:02.000Z</published>
-    <updated>2017-07-27T04:14:59.039Z</updated>
+    <link href="http://devfqh.com/2016/03/26/linux%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>http://devfqh.com/2016/03/26/linux基础知识/</id>
+    <published>2016-03-26T12:11:02.000Z</published>
+    <updated>2017-07-27T05:43:25.456Z</updated>
     
     <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><strong>linux：</strong>开源的类unix操作系统，1991年由芬兰人Linus Torvalds编写，吉祥物为企鹅，由于其出色的性能、安全性等，广泛应用于服务器方面；</p>
 <p><strong>常见的发行版本：</strong>redhat（收费）、fedora、ubuntu（图形界面出色）、centos都是linux的发行版本；</p>
@@ -145,49 +183,11 @@
   </entry>
   
   <entry>
-    <title>ffmpeg编译</title>
-    <link href="http://devfqh.com/2017/07/26/ffmpeg%E7%BC%96%E8%AF%91/"/>
-    <id>http://devfqh.com/2017/07/26/ffmpeg编译/</id>
-    <published>2017-07-26T08:37:07.000Z</published>
-    <updated>2017-07-27T05:39:43.124Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="编译-FFmpeg"><a href="#编译-FFmpeg" class="headerlink" title="编译 FFmpeg"></a>编译 FFmpeg</h2><p>1.阿里云主机 ubuntu 14.04 64位</p>
-<p>2.安装XShell、Xftp</p>
-<p>3.上传NDK、FFmpeg</p>
-<p>4.安装VIM  sudo apt-get install vim-gtk</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">命令模式</div><div class="line">退出，shift + :，输入q!强制退出</div><div class="line">保存退出,shift + z z</div><div class="line">进入编辑模式，i</div><div class="line">进入命令模式，Esc</div><div class="line">命令模式：x删除，dd删除行</div></pre></td></tr></table></figure>
-<p>5.VIM配置<br>进入配置文件：vim /etc/vim/vimrc</p>
-<p>set nu<br>set tabstop<br>set cursorline<br>set ruler</p>
-<ol>
-<li>NDK安装</li>
-</ol>
-<p>目录给权限：chmod 777 -R ndk<br>解压：./android-ndk-r10e-linux-x86_64.bin<br>环境变量配置：<br>命令vim ~/.bashrc<br>添加：<br>export NDKROOT=/usr/ndk/android-ndk-r10e<br>export PATH=$NDKROOT:$PATH<br>更新环境变量：<br>source ~/.bashrc</p>
-<p>7.解压ffmpeg</p>
-<p>unzip ffmpeg-2.6.9.zip</p>
-<p>8.编译ffmpeg</p>
-<p>1）编写shell脚本文件<br>2）给文件权限：chmod 777 android_build.sh<br>dos2unix<br>3）执行 ./android_build.sh</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;编译-FFmpeg&quot;&gt;&lt;a href=&quot;#编译-FFmpeg&quot; class=&quot;headerlink&quot; title=&quot;编译 FFmpeg&quot;&gt;&lt;/a&gt;编译 FFmpeg&lt;/h2&gt;&lt;p&gt;1.阿里云主机 ubuntu 14.04 64位&lt;/p&gt;
-&lt;p&gt;2.安装XShell
-    
-    </summary>
-    
-      <category term="直播" scheme="http://devfqh.com/categories/%E7%9B%B4%E6%92%AD/"/>
-    
-    
-      <category term="-直播" scheme="http://devfqh.com/tags/%E7%9B%B4%E6%92%AD/"/>
-    
-  </entry>
-  
-  <entry>
     <title>C语言基础</title>
-    <link href="http://devfqh.com/2017/07/23/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
-    <id>http://devfqh.com/2017/07/23/C语言基础/</id>
-    <published>2017-07-23T11:42:24.000Z</published>
-    <updated>2017-07-26T12:07:52.258Z</updated>
+    <link href="http://devfqh.com/2015/11/26/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    <id>http://devfqh.com/2015/11/26/C语言基础/</id>
+    <published>2015-11-26T12:11:02.000Z</published>
+    <updated>2017-07-27T05:43:38.180Z</updated>
     
     <content type="html"><![CDATA[<h1 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h1><p>入门第一语言HelloWorld？哈哈。原因是当年C语言的作者，Dennis Ritchie(丹尼斯·里奇)在他的名著《C程序设计语言（The C Programming Langupeach）》中第一次引入，传为后世经典，其它语言亦争相效仿，以示致敬。<br><img src="http://devfqh.com/images/C/chapter_one1.png" alt=""></p>
 <p><strong>优点：</strong>高效率、跨平台、灵活、可操作内存、访问硬件、强大函数库等；且由于c的出现，此后诞生的程序语言大致都参照与c语言的风格。<br><strong>缺点：</strong>指针的风险，面向过程性等。</p>
